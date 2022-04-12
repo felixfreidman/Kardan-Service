@@ -38,6 +38,28 @@ html(lang="en")
                     .swiper-button-prev 
                     .swiper-button-next
         section.section.section--menu
+            .button-container 
+                .button-toggler.button-toggler--active услуги
+                .button-toggler интернет-магазин
+            .menu-container
+                .container.container--show 
+                    .container-navigation 
+                        .content-toggler.content-toggler--active  
+                            .logo 
+                                img(src="./assets/images/content/cardan.svg", alt="")
+                            .caption Ремонт карданов
+                        .content-toggler 
+                            .logo 
+                                img(src="./assets/images/content/turbo.svg", alt="")
+                            .caption Ремонт турбин
+                        .content-toggler 
+                            .logo 
+                                img(src="./assets/images/content/rotor.svg", alt="")
+                            .caption Балансировка роторов
+                        .content-toggler
+                            .logo.treat  
+                                img(src="./assets/images/content/treat.svg", alt="")
+                            .caption Механическая обработка
         section.section.sectin--form  
     include ./footer.pug
     script(src="./assets/js/jquery.min.js")
