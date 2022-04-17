@@ -109,6 +109,14 @@ menuTogglers.forEach(function (toggler) {
     });
     toggler.classList.add("content-toggler--active");
     showScreen(toggler.id);
+    menuButtons.forEach(function (button) {
+      if (button.classList.contains("button-toggler--active")) {
+        button.classList.remove("button-toggler--active");
+      }
+
+      var buttonID = button.id;
+      if (buttonID.includes('service')) document.getElementById(buttonID).classList.add("button-toggler--active");
+    });
   });
 });
 
