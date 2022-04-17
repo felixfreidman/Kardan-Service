@@ -39,27 +39,71 @@ html(lang="en")
                     .swiper-button-next
         section.section.section--menu
             .button-container 
-                .button-toggler.button-toggler--active услуги
-                .button-toggler интернет-магазин
+                .button-toggler#serviceButton услуги
+                .button-toggler.button-toggler--active#shopButton интернет-магазин
             .menu-container
                 .container.container--show 
                     .container-navigation 
-                        .content-toggler.content-toggler--active  
+                        .content-toggler.content-toggler--active#kardan  
                             .logo 
                                 img(src="./assets/images/content/cardan.svg", alt="")
                             .caption Ремонт карданов
-                        .content-toggler 
+                        .content-toggler#turbo 
                             .logo 
                                 img(src="./assets/images/content/turbo.svg", alt="")
                             .caption Ремонт турбин
-                        .content-toggler 
+                        .content-toggler#rotor 
                             .logo 
                                 img(src="./assets/images/content/rotor.svg", alt="")
                             .caption Балансировка роторов
-                        .content-toggler
+                        .content-toggler#treat
                             .logo.treat  
                                 img(src="./assets/images/content/treat.svg", alt="")
                             .caption Механическая обработка
+        section.section.section--screens
+            .adaptive-screen.screen-hidden#kardan-screen 
+                img(src="./assets/images/content/main_bg.jpg", alt="") 
+                .adaptive-screen__container 
+                    .adaptive-screen__header Ремонт карданов
+                    .adaptive-screen__content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor id aliquet lectus proin nibh. Sed viverra ipsum nunc aliquet bibendum. In fermentum posuere urna nec tincidunt praesent. Eu mi bibendum neque egestas congue quisque egestas. Donec enim diam vulputate ut pharetra sit. Odio pellentesque diam volutpat commodo. Aliquet risus feugiat in ante metus dictum at tempor commodo. Odio pellentesque diam volutpat commodo sed. Tincidunt vitae semper quis lectus nulla at volutpat diam ut. Aliquam id diam maecenas ultricies mi eget mauris. Odio eu feugiat pretium nibh ipsum. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Commodo nulla facilisi nullam vehicula ipsum a. Quam pellentesque nec nam aliquam sem et tortor consequat id. Enim sed faucibus turpis in eu mi bibendum neque.
+                    .adaptive-screen__button-more Узнать больше
+            .adaptive-screen.screen-hidden#turbo-screen
+                img(src="./assets/images/content/main_bg.jpg", alt="") 
+                .adaptive-screen__container 
+                    .adaptive-screen__header Ремонт турбин
+                    .adaptive-screen__content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor id aliquet lectus proin nibh. Sed viverra ipsum nunc aliquet bibendum. In fermentum posuere urna nec tincidunt praesent. Eu mi bibendum neque egestas congue quisque egestas. Donec enim diam vulputate ut pharetra sit. Odio pellentesque diam volutpat commodo. Aliquet risus feugiat in ante metus dictum at tempor commodo. Odio pellentesque diam volutpat commodo sed. Tincidunt vitae semper quis lectus nulla at volutpat diam ut. Aliquam id diam maecenas ultricies mi eget mauris. Odio eu feugiat pretium nibh ipsum. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Commodo nulla facilisi nullam vehicula ipsum a. Quam pellentesque nec nam aliquam sem et tortor consequat id. Enim sed faucibus turpis in eu mi bibendum neque.
+                    .adaptive-screen__button-more Узнать больше
+            .adaptive-screen.screen-hidden#rotor-screen 
+                img(src="./assets/images/content/main_bg.jpg", alt="") 
+                .adaptive-screen__container 
+                    .adaptive-screen__header Балансировка роторов
+                    .adaptive-screen__content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor id aliquet lectus proin nibh. Sed viverra ipsum nunc aliquet bibendum. In fermentum posuere urna nec tincidunt praesent. Eu mi bibendum neque egestas congue quisque egestas. Donec enim diam vulputate ut pharetra sit. Odio pellentesque diam volutpat commodo. Aliquet risus feugiat in ante metus dictum at tempor commodo. Odio pellentesque diam volutpat commodo sed. Tincidunt vitae semper quis lectus nulla at volutpat diam ut. Aliquam id diam maecenas ultricies mi eget mauris. Odio eu feugiat pretium nibh ipsum. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Commodo nulla facilisi nullam vehicula ipsum a. Quam pellentesque nec nam aliquam sem et tortor consequat id. Enim sed faucibus turpis in eu mi bibendum neque.
+                    .adaptive-screen__button-more Узнать больше
+            .adaptive-screen.screen-hidden#treat-screen
+                img(src="./assets/images/content/main_bg.jpg", alt="") 
+                .adaptive-screen__container 
+                    .adaptive-screen__header Механическая обработка
+                    .adaptive-screen__content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor id aliquet lectus proin nibh. Sed viverra ipsum nunc aliquet bibendum. In fermentum posuere urna nec tincidunt praesent. Eu mi bibendum neque egestas congue quisque egestas. Donec enim diam vulputate ut pharetra sit. Odio pellentesque diam volutpat commodo. Aliquet risus feugiat in ante metus dictum at tempor commodo. Odio pellentesque diam volutpat commodo sed. Tincidunt vitae semper quis lectus nulla at volutpat diam ut. Aliquam id diam maecenas ultricies mi eget mauris. Odio eu feugiat pretium nibh ipsum. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Commodo nulla facilisi nullam vehicula ipsum a. Quam pellentesque nec nam aliquam sem et tortor consequat id. Enim sed faucibus turpis in eu mi bibendum neque.
+                    .adaptive-screen__button-more Узнать больше
+            .adaptive-screen.screen-active#shop-screen 
+                .container 
+                    .shop-container 
+                        a(href="shop-item").shop-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/main_bg.jpg)") 
+                            .shop-header Замена карданого вала
+                            .shop-time 24 часа
+                        a(href="shop-item").shop-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/main_bg.jpg)") 
+                            .shop-header Замена масла
+                            .shop-time 1 час
+                        a(href="shop-item").shop-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/main_bg.jpg)") 
+                            .shop-header Замена турбины
+                            .shop-time 96 часов
+                        a(href="shop-item").shop-card(style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/main_bg.jpg)") 
+                            .shop-header Механическая обработка
+                            .shop-time 28 часов
+                    a(href="shop.html").shop-button Больше товаров
+
+
+                    
         section.section.sectin--form  
     include ./footer.pug
     script(src="./assets/js/jquery.min.js")
