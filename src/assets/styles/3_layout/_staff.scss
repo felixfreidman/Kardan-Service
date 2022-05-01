@@ -46,9 +46,17 @@
     }
 }
 
+body:before {
+    content: url(./assets/images/content/vapor.png);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
-
-.staff-body {
+body {
     main {
         z-index: 100;
     }
@@ -111,12 +119,17 @@
                 margin-right: 24px;
                 max-height: 342px;
                 height: 342px;
+                border-radius: 16px;
                 margin-bottom: 24px;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
                 background-size: cover !important;
 
+                &:nth-child(4) {
+                    margin-right: 0;
+                    width: calc(25% - 40px);
+                }
 
                 &__name {
                     font-weight: 400;

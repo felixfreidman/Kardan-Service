@@ -25,7 +25,7 @@ const posthtml = require("gulp-posthtml");
 const include = require("posthtml-include");
 
 // Styles
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require('sass'));
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const minify = require("gulp-csso");
@@ -34,9 +34,9 @@ const csscomb = require('gulp-csscomb');
 
 // Images
 const webp = require("gulp-webp");
-const imagemin = require("gulp-imagemin");
+// const imagemin = require("gulp-imagemin");
 const svgstore = require("gulp-svgstore");
-const spritesmith = require('gulp.spritesmith');
+// const spritesmith = require('gulp.spritesmith');
 
 // Config
 const config = require('./config.json');
@@ -155,18 +155,6 @@ gulp.task("images:build", function () {
   return gulp
     .src(config.src.img, { base: config.build.imgBase }) 
     .pipe(buffer())
-    .pipe(imagemin([
-      imagemin.gifsicle({interlaced: true}),
-      imagemin.mozjpeg({quality: 75, progressive: true}),
-      imagemin.optipng({optimizationLevel: 3}),
-      imagemin.svgo({
-          plugins: [
-              {removeViewBox: true},
-              {cleanupIDs: false}
-          ]
-      })
-    ]))
- 
     .pipe(gulp.dest(config.build.img))
     // .pipe(reload({stream: true}));
 });
@@ -191,14 +179,6 @@ gulp.task("webp", function () {
 gulp.task("sprite:svg", function () {
   return gulp.src(config.src.sprite.svg)
     .pipe(buffer())
-    .pipe(imagemin([
-      imagemin.svgo({
-        plugins: [
-          {removeViewBox: false},
-          {cleanupIDs: false}
-        ]
-      })
-    ]))
     .pipe(svgstore({
       inlineSvg: true
     }))

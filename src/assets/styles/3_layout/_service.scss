@@ -3,7 +3,7 @@ body {
     font-weight: 500;
     font-size: 16px;
     color: #fff;
-    background: #1a2f44;
+    background: #212021;
     width: 100vw;
     overflow-x: hidden;
     cursor: default;
@@ -14,11 +14,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background-color: #1a2f44;
+    background-color: #212021;
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #d42515b5;
+    background-color: #bb240db5;
 }
 
 a {
@@ -36,17 +36,19 @@ a {
     height: fit-content;
     position: relative;
 
+    padding-top: 100px !important;
+
     .main__breadcrumbs {
         font-weight: 500;
         font-size: 14px;
         line-height: 17px;
-        color: #d42515;
+        color: #bb240d;
         position: absolute;
         left: 140px;
         top: 16px;
 
         a {
-            color: #d42515;
+            color: #bb240d;
             transition: all 0.3s ease;
 
             &:hover {
@@ -64,7 +66,7 @@ a {
             max-height: 473px;
             padding-bottom: 57px;
             overflow-x: hidden;
-            
+
             background-size: cover !important;
 
             .row {
@@ -134,9 +136,9 @@ a {
                 }
 
                 .apply-btn {
-                    background: linear-gradient(360deg, #d42515 0%, $red 100%);
+                    background: linear-gradient(360deg, #bb240d 0%, #e45649 100%);
                     box-shadow: 0px 4px 12px rgba(222, 77, 64, 0.4);
-                    // border-radius: 8px;
+                    border-radius: 8px;
                     font-weight: 700;
                     font-size: 14px;
                     line-height: 17px;

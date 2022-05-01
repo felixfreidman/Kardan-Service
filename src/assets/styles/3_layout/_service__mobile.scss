@@ -23,7 +23,7 @@
             }
 
             .container__description {
-                width: calc(100% - 200px) !important;
+                width: calc(100% - 200px);
                 padding: 58px 100px 96px;
             }
         }
@@ -62,7 +62,7 @@
 
             .container__description {
                 overflow-x: hidden;
-                width: calc(100% - 200px) !important;
+                width: calc(100% - 200px);
                 padding: 58px 100px 96px 100px;
 
                 .description-header {
