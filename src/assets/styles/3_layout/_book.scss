@@ -1,12 +1,13 @@
 .main-book {
-    width: calc(100% - 280px);
-    padding: 97px 140px 17px;
+    width: calc(100% - 140px);
+    padding: 150px 70px 17px;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: start;
+    background-color: #212021;
 
-    padding-top: 100px !important;
+    padding-top: 200px !important;
 
     .section-header {
         font-weight: 700;
@@ -217,7 +218,7 @@
         flex-direction: column;
         align-items: start;
         position: relative;
-        background: #233A52;
+        background: radial-gradient(135.89% 108.41% at 96.93% 46.23%, rgba(212, 184, 156, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
         border-radius: 12px;
         margin-bottom: 16px;
         padding: 34px 41px 41px;
@@ -239,7 +240,7 @@
 
             .cross-one,
             .cross-two {
-                background-color:#212021;
+                background-color: #212021;
                 width: 26px;
                 height: 3px;
                 position: absolute;

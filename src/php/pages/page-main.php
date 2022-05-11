@@ -1,35 +1,36 @@
 <?php /* Template Name: Главная страница */
 get_header(); ?>
-<main class="main">
-    <section class="section section--greeting">
+<main class="main" id="toMain">
+    <div class="main--greeting">
         <div class="swiper swiper-greeting" id="greetingSwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="slider-container container--kardan">
                         <div class="header">Ремонт и изготовление карданных валов</div>
                         <div class="subheader">Наши мастера выявят все дефекты и устранят их</div>
-                        <div class="apply-btn">Оставить заявку</div>
+                        <div class="apply-btn modal-button">Оставить заявку</div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="slider-container container--rotor">
                         <div class="header">Балансировка и обслуживание роторов</div>
                         <div class="subheader">Наши мастера выявят все дефекты и устранят их</div>
-                        <div class="apply-btn">Оставить заявку</div>
+                        <div class="apply-btn modal-button">Оставить заявку</div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="slider-container container--turbo">
                         <div class="header">Ремонт и обслуживание турбин</div>
                         <div class="subheader">Наши мастера выявят все дефекты и устранят их</div>
-                        <div class="apply-btn">Оставить заявку</div>
+                        <div class="apply-btn modal-button">Оставить заявку</div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="slider-container container--shop">
                         <div class="header">Наш интернет-магазин</div>
                         <div class="subheader">Узнайте, какие услуги актуальные и сколько они стоят</div>
-                        <div class="apply-btn">Перейти</div>
+
+                        <a class="apply-btn" href="<?=home_url();?>#shop">Перейти</a>
                     </div>
                 </div>
             </div>
@@ -39,95 +40,130 @@ get_header(); ?>
                 <div class="swiper-button-next"></div>
             </div>
         </div>
-    </section>
-    <section class="section section--menu" id="services">
-        <div class="button-container">
-            <div class="button-toggler button-toggler--active" id="serviceButton">услуги</div>
-            <div class="button-toggler" id="shopButton">интернет-магазин</div>
+    </div>
+    <div class="main--shop shop-parent" id="shop">
+        <div class="shop-parent__subtitle">Интернет-магазин</div>
+        <div class="row">
+            <div class="container">
+                <a class="shop-image shop-image--kardan" href='<?=home_url();?>/kardan-shop' data-aos="flip-left"> </a>
+                <a class="shop-image shop-image--turbo" href='<?=home_url();?>/turbo-shop' data-aos="flip-right"> </a>
+            </div>
         </div>
-        <div class="menu-container">
-            <div class="container container--show">
-                <div class="container-navigation">
-                    <div class="content-toggler content-toggler--active" id="kardan">
-                        <div class="logo"> <img
-                                src="<?php echo get_template_directory_uri() . '/assets/images/content/cardan.svg'?>"
-                                alt=""></div>
-                        <div class="caption">Ремонт</div>
-                    </div>
-                    <div class="content-toggler" id="rotor">
-                        <div class="logo"> <img
-                                src="<?php echo get_template_directory_uri() . '/assets/images/content/rotor.svg'?>"
-                                alt=""></div>
-                        <div class="caption">Балансировка роторов</div>
-                    </div>
-                    <div class="content-toggler" id="treat">
-                        <div class="logo treat"> <img
-                                src="<?php echo get_template_directory_uri() . '/assets/images/content/treat.svg'?>"
-                                alt=""></div>
-                        <div class="caption">Механическая обработка</div>
-                    </div>
+    </div>
+    <div class="main--kardan kardan-parent" id="services">
+        <div class="image-container"> <img
+                src="https://ruskardan.ru/image/catalog/content/mercedes/sprinter/Sprinter_6_big.jpg" alt=""
+                data-aos="flip-up">
+            <div class="kardan-parent__badge-icon">
+                <a href="<?=home_url();?>/kardan"><img
+                        src="<?=get_template_directory_uri() . '/assets/images/content/badge.svg'?>" alt=""
+                        data-aos="flip-down"></a>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="kardan-parent__subtitle">Ремонт карданных валов</div>
+            <div class="kardan-parent__content">Компания ООО «Кардан Сервис» предлагает ремонт карданных валов для
+                всех марок автомобилей, спецтехники и промышленного оборудования. Обращаясь к нам вы можете быть
+                уверены в наивысшем качестве, профессионализме и заводских условиях ремонта</div>
+            <div class="special-row">
+                <a class="kardan-parent__button" href="<?=home_url();?>/kardan">Узнать больше</a>
+                <div class="kardan-parent__button modal-button">Отправить заявку</div>
+            </div>
+        </div>
+    </div>
+    <div class="main--benefits benefits-parent">
+        <div class="content-container">
+            <div class="benefits-parent__subtitle">Ремонт турбокомпрессоров</div>
+            <div class="benefits-parent__content">Восстановим ваш турбокомпрессор в заводских условиях с гарантией
+                до двух лет.</div>
+            <div class="benefits-parent__list">
+                <div class="benefits-parent__item">
+                    <div class="benefits-parent__counter">1</div>
+                    <div class="benefits-parent__value">Профессиональная диагностика и настройка турбокомпрессоров
+                        на стендах CIMAT</div>
+                </div>
+                <div class="benefits-parent__item">
+                    <div class="benefits-parent__counter">2</div>
+                    <div class="benefits-parent__value">Используем исключительно оригинальные запчасти лучшего
+                        качества</div>
+                </div>
+                <div class="benefits-parent__item">
+                    <div class="benefits-parent__counter">3</div>
+                    <div class="benefits-parent__value">Ремонтируем турбины любых марок автомобилей.</div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="section section--screens">
-        <div class="adaptive-screen screen-active" id="kardan-screen">
-            <div class="adaptive-screen__container">
-                <a href="https://xn--38-9kc6cilh.xn--p1ai/" class="link-half">
-                    <div class="adaptive-screen__header">Ремонт карданов</div>
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/content/main_bg.jpg '?>" alt="">
-                </a>
-                <a href="https://xn--38-9kc6cilh.xn--p1ai/" class="link-half">
-                    <div class="adaptive-screen__header">Ремонт турбин</div>
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/content/main_bg.jpg '?>" alt="">
-                </a>
+            <div class="special-row">
+                <a class="benefits-parent__button" href="<?=home_url();?>/turbo">Узнать больше</a>
+                <div class="benefits-parent__button modal-button">Отправить заявку</div>
             </div>
         </div>
-        <div class="adaptive-screen screen-hidden" id="rotor-screen">
-            <div class="adaptive-screen__container">
-                <a href="https://xn--38-9kc6cilh.xn--p1ai/" class="link-big">
-                    <div class="adaptive-screen__header">Балансировка роторов</div>
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/content/main_bg.jpg '?>" alt="">
-                </a>
-            </div>
+        <div class="images-container">
+            <div class="image-container image-container--first" data-aos="fade-left"></div>
+            <div class="image-container image-container--second" data-aos="fade-right"></div>
+            <div class="benefits-parent__badge-icon"> <a href="<?=home_url();?>/turbo"><img
+                        src="<?=get_template_directory_uri() . '/assets/images/content/badge-turbo.svg'?>" alt=""
+                        data-aos="flip-down"></a></div>
         </div>
-        <div class="adaptive-screen screen-hidden" id="treat-screen">
-            <div class="adaptive-screen__container">
-                <a href="https://xn--38-9kc6cilh.xn--p1ai/" class="link-big">
-                    <div class="adaptive-screen__header">Механическая обработка</div>
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/content/main_bg.jpg '?>" alt="">
-                </a>
-            </div>
-        </div>
-        <div class="adaptive-screen screen-hidden" id="shop-screen">
+    </div>
+    <div class="main--form form-parent">
+        <form class="form-container" data-aos="flip-down">
             <div class="container">
-                <div class="shop-container"> <a class="shop-card" href="shop-item"
-                        style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/main_bg.jpg)">
-                        <div class="shop-header">Замена карданого вала</div>
-                        <div class="shop-time">24 часа</div>
-                    </a><a class="shop-card" href="shop-item"
-                        style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/main_bg.jpg)">
-                        <div class="shop-header">Замена масла</div>
-                        <div class="shop-time">1 час</div>
-                    </a><a class="shop-card" href="shop-item"
-                        style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/main_bg.jpg)">
-                        <div class="shop-header">Замена турбины</div>
-                        <div class="shop-time">96 часов</div>
-                    </a><a class="shop-card" href="shop-item"
-                        style="background: linear-gradient( 360deg, rgba(26, 47, 68, 0.9) 0%, rgba(26, 47, 68, 0) 100%), url(./assets/images/content/main_bg.jpg)">
-                        <div class="shop-header">Механическая обработка</div>
-                        <div class="shop-time">28 часов</div>
-                    </a></div><a class="shop-button" href="shop.html">Больше товаров</a>
+                <div class="form-parent__title">Перезвоним за 2 минуты</div>
+                <div class="form-parent__subtitle"> Наш менеджер готов перезвонить вам в течение 2-ух минут, помочь
+                    с подбором или принять в ремонт вашу запчасть</div>
+                <div class="form-parent__bar"></div>
+            </div>
+            <div class="form-apply">
+                <div class="special-row" style="width: 70% !important"><label class="form-parent__label"
+                        for="userName">Имя<input class="form-parent__input" type="text"></label><label
+                        class="form-parent__label" for="userName">Телефон<input class="form-parent__input"
+                            type="text"></label></div><button class="form-parent__button"
+                    type="submit">Оставить</button>
+            </div>
+        </form>
+    </div>
+    <div class="main--navigation navigation-parent">
+        <div class="navigation-parent__title">/Что мы предлагаем?</div>
+        <div class="navigation-parent__subtitle">Специалисты своего дела</div>
+        <div class="navigation-parent__container">
+            <div class="navigation-parent__image"> <img
+                    src="https://st18.stpulscen.ru/images/product/331/501/780_big.jpg" alt="" data-aos="flip-down">
+            </div>
+            <div class="navigation-parent__service">
+                <div class="navigation-parent__counter">Балансировка роторов</div>
+                <div class="navigation-parent__description">Осуществляем динамическую балансировку роторов
+                </div><a class="navigation-parent__more" href="/rotor/"> </a>
+            </div>
+            <div class="navigation-parent__image"> <img
+                    src="http://kardan.bezrealtora.ru/wp-content/themes/kardan/assets/images/content/kardany.jpg" alt=""
+                    data-aos="flip-down"></div>
+            <div class="navigation-parent__service">
+                <div class="navigation-parent__counter">Механическая обработка</div>
+                <div class="navigation-parent__description">Фрезерная, токарная, зуборезная, электроэрозионная
+                    обработка, термообработка ваших деталей и многое другое
+                </div><a class="navigation-parent__more" href="/treatment/"> </a>
+            </div>
+            <div class="navigation-parent__image"> <img
+                    src="https://www.d-servis.ru/upload/medialibrary/fd1/Obrabotka-metalla-na-tokarnom-stanke-s-CHPU-v-Penze_.jpg"
+                    alt="" data-aos="flip-down"></div>
+            <div class="navigation-parent__service">
+                <div class="navigation-parent__counter">Интернет-магазин</div>
+                <div class="navigation-parent__description">Выкупаем ваши исправные и неисправные турбины из любого
+                    города. Чтобы узнать, как продать
+                    турбину
+                </div><a class="navigation-parent__more" href="#shop"> </a>
             </div>
         </div>
-    </section>
-    <section class="section sectin--form"> </section>
+    </div>
 </main>
+<div class="map-container" id="contacts">
+    <div id="newMap"></div>
+</div>
 <script>
 ymaps.ready(init);
 
 function init() {
-    var myMap = new ymaps.Map('map', {
+    var myMap = new ymaps.Map('newMap', {
             center: [56.81122355, 60.72763708],
             zoom: 14
         }),
@@ -137,7 +173,7 @@ function init() {
             iconCaption: 'г. Екатеринбург, ул. Летняя, 20',
         }, {
             iconLayout: 'default#image',
-            iconImageHref: "<?php echo get_template_directory_uri() . '/assets/images/content/logo.svg'?>",
+            iconImageHref: "<?php echo get_template_directory_uri() . '/assets/images/content/logo_custom.svg'?>",
             iconImageSize: [30, 42],
             iconImageOffset: [-5, -38],
         })

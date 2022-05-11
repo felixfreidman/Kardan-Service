@@ -22,35 +22,8 @@ $(function () {
             success: function (response) {
                 orderButton.textContent = response;
                 setTimeout(() => {
-                    window.location.href = "https://parovoz.yurin.biz/services";
+                    window.location.href = "";
                 }, 1200);
-            },
-        });
-    });
-});
-$(function () {
-    $(".apply-form").on("submit", function (e) {
-        e.preventDefault();
-        var name = $("#reviewName").val();
-        var description = $("#description").val();
-        var rating = $("#starRatingInput").val();
-        var bathType = $("#bathTypeSelect").val();
-        var orderButton = document.querySelector('.form-button');
-        orderButton.textContent = "Подтверждаем";
-
-        $.ajax({
-            type: "post",
-            url: "/wp-admin/admin-ajax.php",
-            data: {
-                action: "review_form",
-                name: name,
-                description: description,
-                rating: rating,
-                bathType: bathType
-            },
-            success: function (response) {
-                $(".dark-layer").html(response);
-                closeAppliedForm();
             },
         });
     });

@@ -1,28 +1,28 @@
 @font-face {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 300;
-    src: url("./assets/fonts/Montserrat-Light.ttf");
+    src: url('./assets/fonts/Montserrat-Light.ttf');
 }
 
 
 /* montserrat-regular - cyrillic_latin */
 
 @font-face {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
-    src: url("./assets/fonts/Montserrat-Thin.ttf");
+    src: url('./assets/fonts/Montserrat-Thin.ttf');
 }
 
 
 /* montserrat-600 - cyrillic_latin */
 
 @font-face {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
-    src: url("./assets/fonts/Montserrat-Regular.ttf");
+    src: url('./assets/fonts/Montserrat-Regular.ttf');
     /* Legacy iOS */
 }
 
@@ -30,32 +30,24 @@
 /* montserrat-700 - cyrillic_latin */
 
 @font-face {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    src: url("./assets/fonts/Montserrat-Medium.ttf");
+    src: url('./assets/fonts/Montserrat-Medium.ttf');
 }
 
 @font-face {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 800;
-    src: url("./assets/fonts/Montserrat-Bold.ttf");
+    src: url('./assets/fonts/Montserrat-Bold.ttf');
 }
 
 @font-face {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 900;
-    src: url("./assets/fonts/Montserrat-ExtraBold.ttf");
-}
-
-@font-face {
-    font-family: "Geometria";
-    src: url("./assets/fonts/Geometria-Thin.eot");
-    src: local("./assets/fonts/Geometria Thin"), local("./assets/fonts/Geometria-Thin"), url("./assets/fonts/Geometria-Thin.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Geometria-Thin.woff") format("woff"), url("./assets/fonts/Geometria-Thin.ttf") format("truetype");
-    font-weight: 100;
-    font-style: normal;
+    src: url('./assets/fonts/Montserrat-ExtraBold.ttf');
 }
 
 @font-face {

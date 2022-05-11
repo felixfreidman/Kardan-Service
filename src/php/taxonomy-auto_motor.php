@@ -1,28 +1,40 @@
-<?php /* Template Name: Страница Товаров */
+<?php get_header();
 
-get_header();
+$taxonomy = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+$mypost = array(
+    'post_type' => 'kardan-staff',
+    'posts_per_page' => -1,
+    'orderby' => 'name',
+    'order' => 'ASC',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'auto_motor',
+            'field' => 'slug',
+            'terms' => $taxonomy->slug,
+        ),
+    ),
+);
+$terms_brand = get_terms(array(
+    'taxonomy' => 'auto_brand',
+    'hide_empty' => false,
+));
+$terms_motor = get_terms(array(
+    'taxonomy' => 'auto_motor',
+    'hide_empty' => false,
+));
+$loop = new WP_Query($mypost);
+$i = 0;
 ?>
+
+
 <main class="main main-staff">
     <div class="breadcrumbs">
         <a href="<?=home_url();?>">Главная</a> /
-        <a href="<?php echo get_permalink() ?>"><?=get_the_title() ?></a>
+        <a href="<?=home_url();?>/kardan-shop">Магазин карданов</a>
     </div>
     <div class="header-container">
-        <div class="header"><?=get_the_title() ?></div>
+        <div class="header">Карданы</div>
     </div>
-    <?php 
-            $section_header = get_field("section_header");
-            $section_amount = get_field("section_amount");
-            $section_tax = get_field("section_tax");
-            $my_staff = array(
-                'post_type' => $section_tax,
-                'posts_per_page' => -1,
-                'orderby' => 'date',
-                'order' => 'ASC',
-            );
-            
-            $loop_section = new WP_Query($my_staff);
-    ?>
     <div class="subheader">Выкупаем ваши исправные и неисправные турбины из любого города. Чтобы узнать, как продать
         турбину,
         оставьте заявку
@@ -32,37 +44,12 @@ get_header();
     </div>
     <div class="header-bar"></div>
     <div class="filter-section">
-        <?php
-        if($section_tax == "kardan-staff") {
-            $terms_brand = get_terms(array(
-                'taxonomy' => 'auto_brand',
-                'hide_empty' => false,
-            ));
-            $terms_motor = get_terms(array(
-                'taxonomy' => 'auto_motor',
-                'hide_empty' => false,
-            ));
-
-            $page_num = 480;
-        } else {
-            $terms_brand = get_terms(array(
-                'taxonomy' => 'auto_brand_turbo',
-                'hide_empty' => false,
-            ));
-            $terms_motor = get_terms(array(
-                'taxonomy' => 'auto_motor_turbo',
-                'hide_empty' => false,
-            ));
-            $page_num = 482;
-        }
-        
-        ?>
         <div class="filter-header">
             Марки автомобиля
             <div class="projects-filter"><span class="filter-header">Марки автомобиля</span>
                 <ul class="filter-list">
                     <li class="filter-elem">
-                        <a href="<?php the_permalink($page_num);?>" class="category category--active">Все</a>
+                        <a href="<?php the_permalink(480);?>" class="category">Все</a>
                     </li>
                     <?php foreach ($terms_brand as $key => $term): ?>
                     <?php $active = 0;?>
@@ -80,7 +67,7 @@ get_header();
             <div class="projects-filter projects-filter--motor"><span class="filter-header">Типы двигателей</span>
                 <ul class="filter-list">
                     <li class="filter-elem">
-                        <a href="<?php the_permalink($page_num);?>" class="category category--active">Все</a>
+                        <a href="<?php the_permalink(480);?>" class="category category--active">Все</a>
                     </li>
                     <?php foreach ($terms_motor as $key => $term): ?>
                     <?php $active = 0;?>
@@ -97,21 +84,18 @@ get_header();
     </div>
     <div class="section">
         <div class="section__header-container">
-            <div class="header"><?=$section_header?></div>
+            <div class="header">Карданы</div>
         </div>
         <div class="staff-container">
 
-            <?php while ($loop_section->have_posts()): $loop_section->the_post();
+            <?php while ($loop->have_posts()): $loop->the_post();
 
                         get_template_part('template/staff-card');
-                        $i++;
                         endwhile;
                         wp_reset_postdata();
                     ?>
         </div>
     </div>
 </main>
-
-
 <?php
 get_footer();

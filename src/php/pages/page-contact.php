@@ -60,7 +60,7 @@ function init() {
             iconCaption: 'г. Екатеринбург, ул. Летняя, 20',
         }, {
             iconLayout: 'default#image',
-            iconImageHref: "<?php echo get_template_directory_uri() . '/assets/images/content/logo.svg'?>",
+            iconImageHref: "<?php echo get_template_directory_uri() . '/assets/images/content/logo_custom.svg'?>",
             iconImageSize: [30, 42],
             iconImageOffset: [-5, -38],
         })

@@ -1,145 +1,611 @@
-.main-cafe {
-    padding: 0 140px 97px;
+.main-typical {
+    width: 100vw;
+    height: fit-content;
+    background-image: url(//f2.lpcdn.site/e602bdcc02a19099706bb170add244c6/56eac0326bff7b066828d858469893b6.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
-    padding-top: 100px !important;
-    position: relative;
-
-    .cafe-description {
-        font-weight: 400;
-        font-size: 16px;
+.main {
+    .header-section-header {
+        font-weight: 700;
+        font-size: 44px;
         line-height: 20px;
         color: #FFFFFF;
-        position: absolute;
-        right: 140px;
-        top: 218px;
-        width: 50%;
+        margin-top: 4px;
     }
 
-    .cafe-images {
-        margin-top: 100px;
-        display: flex;
-        width: 100%;
-        margin-bottom: 64px;
+    &__actions {
+        background-color: transparent !important;
+        width: calc(100% - 140px);
+        padding: 96px 70px 28px;
 
-        img {
-            width: 50%;
-            height: 100%;
-        }
-    }
-
-    .section-header {
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 39px;
-        color: #FFFFFF;
-        margin-bottom: 65px;
-    }
-
-    .container-swiper {
-        width: 100%;
-        height: fit-content;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 40px;
-        transform: rotate(-180deg);
-        width: 54px;
-        height: 54px;
-    }
-
-    .swiper-button-prev {
-        left: 0px;
-
-        &::after {
-            content: '';
+        .action-swiper-container {
+            width: 100%;
+            height: fit-content;
             position: relative;
-            margin: auto;
-            right: 0;
-            left: 0;
-            bottom: -18px;
-            border-top: 2px solid #FFFFFF;
-            border-left: 2px solid #FFFFFF;
-            transform: rotate(135deg);
-            width: 14px;
-            height: 14px;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 80px;
         }
-    }
 
-    .swiper-button-next {
-        right: 0px;
-
-        &:after {
-            content: '';
-            position: relative;
-            margin: auto;
-            right: 0;
-            left: 0;
-            bottom: -18px;
-            border-top: 2px solid #FFFFFF;
-            border-left: 2px solid #FFFFFF;
-            transform: rotate(-45deg);
-            width: 14px;
-            height: 14px;
-            display: block;
+        .swiper-button-next,
+        .swiper-button-prev {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            transform: rotate(-180deg);
+            width: 54px;
+            height: 54px;
         }
-    }
 
-    .swiper-pagination {
-        display: flex;
-        width: 90%;
-        position: static;
-        margin-top: 32px;
+        .swiper-button-prev {
+            left: 0px;
 
-        .swiper-pagination-bullet {
-            width: auto;
-            flex: 1;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 12px;
-            margin-right: 24px;
-            height: 6px;
-
-            &:last-child {
-                margin-right: 0;
+            &::after {
+                content: '';
+                position: relative;
+                margin: auto;
+                right: 0;
+                left: 0;
+                bottom: -18px;
+                border-top: 2px solid #FFFFFF;
+                border-left: 2px solid #FFFFFF;
+                transform: rotate(135deg);
+                width: 14px;
+                height: 14px;
+                display: block;
             }
         }
 
-        .swiper-pagination-bullet-active {
-            background: #FFFFFF;
-            border-radius: 12px;
+        .swiper-button-next {
+            right: 0px;
 
+            &:after {
+                content: '';
+                position: relative;
+                margin: auto;
+                right: 0;
+                left: 0;
+                bottom: -18px;
+                border-top: 2px solid #FFFFFF;
+                border-left: 2px solid #FFFFFF;
+                transform: rotate(-45deg);
+                width: 14px;
+                height: 14px;
+                display: block;
+            }
         }
-    }
 
-    .cafe-swiper {
-        width: 90%;
-        overflow: hidden;
-        left: 0;
-        right: 0;
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-
-        .swiper-wrapper {
+        .action-swiper {
             width: 90%;
-            display: flex;
-            justify-content: space-between;
+            overflow: hidden;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
 
-            .swiper-slide {
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
+            .swiper-wrapper {
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+
+                .swiper-slide {
+                    .action-container {
+                        display: flex;
+                        align-items: flex-start;
+                        background: radial-gradient(135.89% 108.41% at 96.93% 46.23%, rgba(212, 184, 156, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+                        backdrop-filter: blur(31.6089px);
+                        border-radius: 10px;
+                        max-height: 272px;
+
+                        img {
+                            border-radius: 0 10px 10px 0px;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        &__image {
+                            max-width: 224px;
+                            max-height: 272px;
+                            width: 50%;
+                            height: 272px;
+                        }
+
+                        &__column {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: start;
+                            justify-content: flex-start;
+                            padding: 32px;
+                            width: calc(70% - 64px);
+                        }
+
+                        &__due {
+                            padding: 4px 8px;
+                            background: #D42515;
+                            border-radius: 8px;
+                            font-weight: 700;
+                            font-size: 12px;
+                            line-height: 15px;
+                            color: #FFFFFF;
+                            margin-bottom: 4px;
+                        }
+
+                        &__header {
+                            font-weight: 700;
+                            font-size: 20px;
+                            line-height: 24px;
+                            color: #FFFFFF;
+                            margin-bottom: 16px;
+                        }
+
+                        &__caption {
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 17px;
+                            color: #FFFFFF;
+                        }
+                    }
                 }
             }
+
+
         }
-
-
     }
 }
+
+.main_welcome-section {
+    height: 100vh;
+    width: calc(100% - 140px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    cursor: default;
+    position: relative;
+    padding: 0 70px;
+}
+
+.welcome-section_header {
+    color: #fff;
+    font-size: 50px;
+    font-family: "Geometria";
+    margin-bottom: 20px;
+}
+
+.welcome-section_subheader {
+    color: #fff;
+    font-size: 30px;
+    font-family: "Geometria";
+}
+
+
+/* --------------------- Welcome Section */
+
+
+/* Intro Section --------------------- */
+
+.main_intro-section {
+    height: fit-content;
+    height: -moz-fit-content;
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url(//f2.lpcdn.site/e602bdcc02a19099706bb170add244c6/94d9ba77076ea29358cedd84bac5fbb1.jpg);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10%;
+    position: relative;
+    cursor: default;
+}
+
+.intro-section_text {
+    color: #fff;
+    font-family: "Geometria";
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+
+/* --------------------- Intro Section */
+
+
+/* Services and Benefits Section --------------------- */
+
+.main_services-section,
+.main_benefit-section {
+    height: fit-content;
+    height: -moz-fit-content;
+    padding: 0px 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    cursor: default;
+    width: calc(100% - 140px);
+    height: fit-content;
+}
+
+.main_services-section {
+    margin-top: 100px;
+    border-radius: 22px 22px 0 0;
+}
+
+.main_benefit-section {
+    margin-bottom: 100px;
+    border-radius: 0 0 22px 22px;
+}
+
+.services-section_header {
+    color: #fff;
+    font-size: 40px;
+    font-family: "Geometria";
+    font-weight: 600;
+    margin-bottom: 100px;
+}
+
+.content-head {
+    color: #ff8000;
+    font-size: 28px;
+    font-family: "Geometria";
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.content-body {
+    color: #fff;
+    font-size: 20px;
+    font-family: "Geometria";
+    font-weight: 400;
+    text-align: center;
+}
+
+.services-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    width: 100%;
+}
+
+.section_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main_benefit-section .services-section .section_content .content-head {
+    font-size: 40px;
+}
+
+.main_benefit-section .services-section_header {
+    font-size: 50px;
+}
+
+
+/* --------------------- Services and Benefits Section */
+
+
+/* Application Section --------------------- */
+
+.main_applicationForm-section {
+    height: fit-content;
+    height: -moz-fit-content;
+    padding: 20px 20px;
+    background-attachment: fixed;
+    background-image: url("../images/images/backgroundBlue.png");
+    background-position: 10% 50%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: default;
+    width: calc(80% - 20px);
+    border-radius: 22px;
+    margin-bottom: 100px;
+}
+
+.applicationForm {
+    position: relative;
+    display: flex;
+    padding: 40px;
+    height: fit-content;
+    border-radius: 16px;
+    justify-content: space-between;
+    font-family: "Geometria";
+}
+
+.applicationForm_advertismentInfo-section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.advertismentInfo-section_header {
+    color: #ff8000;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.advertismentInfo-section_subheader {
+    color: #ff8000;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+}
+
+.applicationForm_applyInfo-section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.applyInfo-section_requiredActions-section {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+
+.requiredActions-section_telephone-input {
+    display: flex;
+    height: 50px;
+    width: 50%;
+    margin-right: 5%;
+}
+
+.telephone-input_preNumber {
+    background-color: #ff8000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px 0px 0px 8px;
+    font-size: 22px;
+    width: 25%;
+    height: 100%;
+}
+
+.telephone-input_number {
+    outline: none;
+    border: none;
+    background-color: #212121;
+    border: 1px solid #ff8000;
+    color: #ff8000;
+    margin-left: 0px;
+    padding: 0;
+    padding-left: 10px;
+    font-size: 20px;
+    width: 75%;
+    height: 100%;
+    border-radius: 0px 8px 8px 0px;
+}
+
+.requredActions-section_apply-button {
+    width: 45%;
+    height: 100%;
+    background-color: #ff8000;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.requredActions-section_apply-button:active {
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.applyInfo-section_personalAgree-checkbox {
+    display: none;
+}
+
+.applyInfo-section_personalAgree-checkbox+label::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ff8000;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    cursor: pointer;
+}
+
+.applyInfo-section_personalAgree-checkbox:checked+label::before {
+    border-color: #ff8000;
+    background-color: #ff8000;
+    background-image: url("../images/images/checkmark.svg");
+}
+
+.personalAgree-label>a,
+.personalAgree-label>a:visited {
+    text-decoration: none;
+    color: #76b5c5;
+}
+
+.personalAgree-label {
+    color: #fff;
+}
+
+.personalAgree-label>a:hover,
+.personalAgree-label>a:active {
+    color: #ff8000;
+}
+
+.personalAgree-label {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+
+/* ----------------------------------------------- Конец стилей для мини-формы заявки */
+
+/* FAQ Section --------------------- */
+
+.main_FAQ-section {
+    height: fit-content;
+    height: -moz-fit-content;
+    padding: 80px 70px 0px;
+    border-radius: 22px;
+    margin-bottom: 100px;
+    background-attachment: fixed;
+    background-image: url("../images/images/backgroundBlue.png");
+    background-position: 10% 50%;
+    width: calc(100% - 140px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[name="FAQsection"] {
+    display: none;
+}
+
+input[name="FAQsection"]:checked+label>.question-block_row>.question-block-indicator {
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.FAQ-section_question-block {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 60px);
+    background-attachment: fixed;
+    background-image: url("../images/images/backgroundRed.jpg");
+    background-size: cover;
+    height: fit-content;
+    height: -moz-fit-content;
+    color: #fff;
+    padding: 20px 30px;
+    overflow-y: hidden;
+    border-radius: 22px;
+    cursor: pointer;
+}
+
+.FAQ-section_question-block:hover {
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 30px;
+}
+
+.question-block_answer-block {
+    display: none;
+}
+
+input[name="FAQsection"]:checked+label>.question-block_answer-block {
+    display: block;
+}
+
+.question-block-indicator {
+    width: 24px;
+    height: 24px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.question-block_row {
+    display: flex;
+    align-items: center;
+    font-family: "Geometria";
+    font-size: 30px;
+    font-weight: 500;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question-block_answer-block {
+    margin-top: 22px;
+    font-family: "Geometria";
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.quiestion-block_quiestion-content {
+    width: 90%;
+    font-size: 30px;
+}
+
+
+/* --------------------- FAQ Section */
+
+
+/* Number Application Section --------------------- */
+
+.main_number-application-form {
+    width: calc(30% - 40px);
+    height: fit-content;
+    position: absolute;
+    top: 35%;
+    right: 70px;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(135.89% 108.41% at 96.93% 46.23%, rgba(212, 184, 156, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 22px;
+    align-items: center;
+    padding: 20px 20px;
+    font-family: "Geometria";
+    font-weight: 400;
+}
+
+.number-application-form_label {
+    font-size: 18px;
+    color: #fff;
+    font-family: "Geometria";
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.number-application-form_input {
+    outline: none;
+    border-radius: 8px;
+    font-size: 24px;
+    padding: 10px 15px;
+    color: #ff8000;
+    background-color: #212121;
+}
+
+.number-application-form_input::placeholder {
+    color: #ccc;
+}
+
+.number-application-form_button {
+    color: white;
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    font-family: "Geometria";
+    font-weight: 500;
+    background-color: #ff8000;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+.header_contact-section-mobile {
+    display: none;
+}
+
+#application-form_input {
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+/* --------------------- Number Application Section */

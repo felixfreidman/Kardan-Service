@@ -73,3 +73,56 @@ const actionSwiper = new Swiper('#actionSwiper', {
         prevEl: '.swiper-button-prev',
     },
 });
+
+const updatedswiperImages = document.querySelectorAll(".preview");
+let updatedimgLinkArray = new Array();
+let updatedreturnValue = 0;
+updatedswiperImages.forEach(slide => {
+    let image = slide.querySelector('img');
+    console.log(image);
+    let imageSrc = image.src.replace("http://localhost:3000", ".");
+    var updatedreturnValue = `<img class="swiper-preview swiper-pagination-bullet" src=${imageSrc}>`;
+    updatedimgLinkArray.push(updatedreturnValue)
+})
+
+const watchSwiper = new Swiper('#watchSwiper', {
+    direction: 'horizontal',
+    loop: false,
+    speed: 500,
+    spaceBetween: 54,
+    effect: 'cards',
+    slidesPerView: '1',
+    swipeHandler: '.swiper-wrapper',
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index) {
+            return updatedimgLinkArray[index];
+        },
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+
+const greetingSwiper = new Swiper("#greetingSwiper", {
+    // Optional parameters
+    direction: "horizontal",
+    loop: true,
+    autoplay: true,
+
+    // If we need pagination
+    pagination: {
+        el: ".swiper-pagination",
+
+        clickable: true,
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
