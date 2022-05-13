@@ -157,7 +157,7 @@ body {
                     flex-direction: column;
                     align-items: start;
                     width: 100%;
-                    margin-bottom: 10px;
+                    margin-bottom: 0px;
 
                     .filter__item {
                         font-size: 14px;
@@ -189,23 +189,48 @@ body {
                 }
 
                 &__button {
-                    color: #fff;
-                    background-color: #d72024;
-                    padding: 10px 0;
+                    // color: #fff;
+                    // background-color: #d72024;
+                    // padding: 10px 0;
+                    // font-size: 12px;
+                    // font-weight: 500;
+                    // width: 48%;
+                    // display: flex;
+                    // align-items: center;
+                    // justify-content: center;
+                    // cursor: pointer;
+                    // margin-right: 0 !important;
+                    // margin-bottom: 0 !important;
                     font-size: 12px;
-                    font-weight: 500;
-                    width: 48%;
+                    font-weight: 700;
+                    line-height: 17px;
                     display: flex;
+                    width: 49%;
+                    padding: 10px 0;
+                    transition: all .3s ease;
+                    text-align: center;
+                    color: #fff;
+                    border: none;
+                    border-radius: 8px;
+                    outline: none;
+                    background: linear-gradient(360deg, #bb240d 0%, #e45649 100%);
+                    box-shadow: 0 4px 12px rgb(222 77 64 / 40%);
                     align-items: center;
                     justify-content: center;
-                    cursor: pointer;
-                    margin-right: 0 !important;
-                    margin-bottom: 0 !important;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        cursor: pointer;
+                    }
                 }
 
                 .modal-button {
-                    background-color: #ff8000 !important;
-                    text-shadow: 1px 1px 2px #212121;
+
+                    background: linear-gradient(360deg, #ff8000 0%, #f99f38 100%);
+                    box-shadow: 0 4px 12px rgb($color: #ff8000, $alpha: 40%);
+                    text-shadow: none !important;
+                    margin-right: 0 !important;
                 }
             }
         }
@@ -526,12 +551,17 @@ body {
 }
 
 .main-staff {
+    .main_number-application-form {
+        top: 100px !important;
+    }
+
     .header-bar {
         background: linear-gradient(90deg, #F99F38 0%, rgba(255, 0, 4, 0) 99.23%);
         width: 100%;
         max-width: 500px;
         height: 4px;
         margin-bottom: 30px !important;
+        margin-top: 30px !important;
     }
 
     .header-container {

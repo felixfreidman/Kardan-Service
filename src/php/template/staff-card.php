@@ -2,13 +2,14 @@
 $staff_price = get_field("staff_price");
 $staff_name = get_field("staff_name");
 $staff_bg = get_field("staff_bg");
+$staff_description = get_field("staff_description");
 $post = get_post();
 $terms_brand = get_the_terms( $post->ID, 'auto_brand'); 
 $terms_motor = get_the_terms( $post->ID, 'auto_motor'); 
 $terms_brand_turbo = get_the_terms( $post->ID, 'auto_brand_turbo'); 
 $terms_motor_turbo = get_the_terms( $post->ID, 'auto_motor_turbo'); 
 ?>
-<div class="container-card"> <img src="<?=$staff_bg?>" alt="" />
+<div class="container-card" data-href="<?php the_permalink($post);?>"> <img src="<?=$staff_bg?>" alt="" />
     <div class="container-card__container">
         <div class="container-card__row">
             <div class="container-card__name"><?=$staff_name?></div>
@@ -38,7 +39,10 @@ $terms_motor_turbo = get_the_terms( $post->ID, 'auto_motor_turbo');
         </div>
         <div class="container-card__row">
             <div class="container-card__button modal-button">Быстрый заказ</div>
-            <div class="container-card__button">Добавить в корзину</div>
+            <div class="container-card__button cart-button">Добавить в корзину</div>
+        </div>
+        <div class="container-card__description js--hidden">
+            <?=$staff_description?>
         </div>
     </div>
 </div>

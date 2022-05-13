@@ -34,12 +34,9 @@ $i = 0;
     <div class="header-container">
         <div class="header">Карданы</div>
     </div>
-    <div class="subheader">Выкупаем ваши исправные и неисправные турбины из любого города. Чтобы узнать, как продать
-        турбину,
+    <div class="subheader">Выкупаем ваши исправные и неисправные карданы из любого города. Чтобы узнать, как продать
+        кардан,
         оставьте заявку
-    </div>
-    <div class="modal-button">
-        Оставить заявку
     </div>
     <div class="header-bar"></div>
     <div class="filter-section">
@@ -66,7 +63,7 @@ $i = 0;
             <div class="projects-filter projects-filter--motor"><span class="filter-header">Типы двигателей</span>
                 <ul class="filter-list">
                     <li class="filter-elem">
-                        <a href="<?php the_permalink(480);?>" class="category category--active">Все</a>
+                        <a href="<?php the_permalink(480);?>" class="category">Все</a>
                     </li>
                     <?php foreach ($terms_motor as $key => $term): ?>
                     <?php $active = 0;?>
@@ -81,6 +78,19 @@ $i = 0;
             </div>
         </div>
     </div>
+    <form class="main_number-application-form" id="serviceForm">
+        <span class="number-application-form_label">Подайте заявку уже сейчас!</span>
+        <div class="requiredActions-section_telephone-input" id="application-form_input">
+            <input type="text" class="telephone-input_name" required placeholder="Ваше имя" id="serviceName" />
+        </div>
+        <div class="requiredActions-section_telephone-input" id="application-form_input">
+            <div class="telephone-input_preNumber">+7</div>
+            <input type="text" class="telephone-input_number" required id="servicePhone" />
+        </div>
+        <button class="number-application-form_button" id="earlyNumberApplicationButton">
+            Отправить
+        </button>
+    </form>
     <div class="section">
         <div class="section__header-container">
             <div class="header">Карданы</div>

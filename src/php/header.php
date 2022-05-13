@@ -1,4 +1,8 @@
 <html lang="en">
+<?php
+$address = get_field("address", "option");
+$telephone_first = get_field("telephone_first", "option");
+?>
 
 <head>
     <meta charset="UTF-8" />
@@ -29,16 +33,20 @@
                 <div class="address-logo"> <img
                         src="<?=get_template_directory_uri() . '/assets/images/content/mapMarker.svg'?>" alt="">
                 </div>
-                <div class="address-value">ул. Сурнова, 22/7</div>
+                <div class="address-value"><?=$address?></div>
             </div>
             <div class="header-phone">
                 <div class="phone-logo"> <img
                         src="<?=get_template_directory_uri() . '/assets/images/content/phoneCall.svg'?>" alt="">
-                </div><a class="phone-value" href="">+7 (3952) 66-22-42 </a>
+                </div><a class="phone-value" href="tel:+<?=$telephone_first?>">+<?=$telephone_first?></a>
             </div>
+            <a class="header__book" href="<?=home_url();?>/cart"><img
+                    src="<?php echo get_template_directory_uri() . '/assets/images/content/cart_image.svg'?>" alt="" />
+                <div class="book-header">Моя корзина</div><span class="book-counter">0</span>
+            </a>
         </div>
         <div class="header-row header-row--static">
             <div class="header-navigation"> <a href="<?=home_url();?>#services">Услуги</a><a
-                    href="<?=home_url();?>#shop">Магазин</a><a href="<?=home_url();?>#contacts">Контакты </a></div>
+                    href="<?=home_url();?>#shop">Магазин</a><a href="<?=home_url();?>/contacts">Контакты </a></div>
         </div>
     </header>

@@ -13,13 +13,13 @@ $address = get_field("address", "option");
                     alt="Company Logo" /></a><span class="logo-caption">Кардан-Сервис</span></div>
         <div class="mobile-container mobile-container--second-to-column">
             <div class="navigation"><a class="navigation-link" href="<?=home_url();?>#services">Услуги</a><a
-                    class="navigation-link" href="<?=home_url();?>#services">Магазин</a><a class="navigation-link"
+                    class="navigation-link" href="<?=home_url();?>#shop">Магазин</a><a class="navigation-link"
                     href="<?=home_url();?>/contacts">Контакты</a></div>
             <div class="mobile-container mobile-container--first-to-column">
                 <div class="contacts"> <a href="tel:+<?=$telephone_second?>">+<?=$telephone_second?></a>
                     <div class="address"><?=$address?></div>
                 </div>
-                <div class="apply-btn apply-btn--footer">Оставить заявку</div>
+                <div class="apply-btn apply-btn--footer modal-button">Оставить заявку</div>
             </div>
         </div>
     </div>
@@ -31,17 +31,20 @@ $address = get_field("address", "option");
 </footer>
 
 <div class="dark-layer js--hidden">
-    <div class="form apply-form" id="applyForm">
+    <form class="form apply-form" id="applyForm">
         <div class="form-close" id="closeForm"><span class="cross-one"> </span><span class="cross-two"></span>
         </div>
         <div class="form-header">Оформление заказа</div>
-        <div class="form-subheader">Для заказа потребуются ваши данные</div><label for="userName">ФИО<input
-                class="form-input" id="userName" type="text" name="userName" placeholder="ФИО" /></label><label
-            for="userPhone">Ваш телефон<input class="form-input" id="userPhone" type="text" name="userName"
-                placeholder="Телефон" data-inputmask="'mask' : '+7(999) 999-99-99'" inputmode="text" /></label><button
-            class="form-button" type="submit">Заказать</button>
+        <div class="form-subheader">Для заказа потребуются ваши данные</div>
+        <label for="userNameApply">ФИО
+            <input class="form-input" id="userNameApply" type="text" name="userName" placeholder="ФИО" /></label>
+        <label for="userPhoneApply">Ваш телефон
+            <input class="form-input" id="userPhoneApply" type="text" name="userName" placeholder="Телефон"
+                data-inputmask="'mask' : '+7(999) 999-99-99'" inputmode="text" />
+        </label>
+        <button class="form-button" type="submit">Заказать</button>
         <div class="form-caption">Нажимая кнопку «Заказать», вы принимаете пользовательское соглашение</div>
-    </div>
+    </form>
 </div>
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/jquery.min.js'?>"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>

@@ -4,7 +4,7 @@ get_header();
 ?>
 <main class="main main-book">
     <div class="header-container">
-        <div class="header">Бронирование</div>
+        <div class="header">Корзина</div>
         <div class="header-bar"></div>
     </div>
     <form class="form-book" id="orderForm">
@@ -27,7 +27,7 @@ get_header();
             </div>
         </div>
         <div class="book-section">
-            <div class="section-header">Ваше Бронирование</div>
+            <div class="section-header">Ваш заказ</div>
             <div class="order-list">
             </div>
             <div class="order-total">

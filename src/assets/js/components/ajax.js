@@ -21,8 +21,113 @@ $(function () {
             },
             success: function (response) {
                 orderButton.textContent = response;
+                localStorage.removeItem("globalCounter")
+                localStorage.removeItem("orderCart")
                 setTimeout(() => {
-                    window.location.href = "";
+                    window.location.href = "http://kardan.bezrealtora.ru/";
+                }, 1200);
+            },
+        });
+    });
+});
+$(function () {
+    $("#applyForm").on("submit", function (e) {
+        e.preventDefault();
+        console.log("yes");
+        var name = $("#userNameApply").val();
+        var phone = $("#userPhoneApply").val();
+        var orderButton = document.querySelector('.form-button');
+        orderButton.textContent = "Подтверждаем";
+
+        $.ajax({
+            type: "post",
+            url: "/wp-admin/admin-ajax.php",
+            data: {
+                action: "ajax_apply",
+                name: name,
+                phone: phone,
+            },
+            success: function (response) {
+                orderButton.textContent = response;
+                setTimeout(() => {
+                    location.reload();
+                }, 1200);
+            },
+        });
+    });
+});
+$(function () {
+    $("#miniApplyForm").on("submit", function (e) {
+        e.preventDefault();
+        var name = $("#userNameMini").val();
+        var phone = $("#userPhoneMini").val();
+        var orderButton = document.querySelector('.miniButton');
+        orderButton.textContent = "Подтверждаем";
+
+        $.ajax({
+            type: "post",
+            url: "/wp-admin/admin-ajax.php",
+            data: {
+                action: "ajax_miniapply",
+                name: name,
+                phone: phone,
+            },
+            success: function (response) {
+                orderButton.textContent = response;
+                setTimeout(() => {
+                    location.reload();
+                }, 1200);
+            },
+        });
+    });
+});
+$(function () {
+    $("#serviceForm").on("submit", function (e) {
+        e.preventDefault();
+        var name = $("#serviceName").val();
+        var phone = $("#servicePhone").val();
+        var orderButton = document.querySelector('.number-application-form_button');
+        orderButton.textContent = "Подтверждаем";
+
+        $.ajax({
+            type: "post",
+            url: "/wp-admin/admin-ajax.php",
+            data: {
+                action: "ajax_serviceform",
+                name: name,
+                phone: phone,
+            },
+            success: function (response) {
+                orderButton.textContent = response;
+                setTimeout(() => {
+                    location.reload();
+                }, 1200);
+            },
+        });
+    });
+});
+$(function () {
+    $("#otherApplyForm").on("submit", function (e) {
+        e.preventDefault();
+        var name = $("#userNameOther").val();
+        var phone = $("#userPhoneOther").val();
+        var city = $("#userCityOther").val();
+        var orderButton = document.querySelector('.form-parent__button');
+        orderButton.textContent = "Подтверждаем";
+
+        $.ajax({
+            type: "post",
+            url: "/wp-admin/admin-ajax.php",
+            data: {
+                action: "ajax_othercityform",
+                name: name,
+                phone: phone,
+                city: city,
+            },
+            success: function (response) {
+                orderButton.textContent = response;
+                setTimeout(() => {
+                    location.reload();
                 }, 1200);
             },
         });

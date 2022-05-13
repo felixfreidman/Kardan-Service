@@ -23,12 +23,8 @@ get_header();
             
             $loop_section = new WP_Query($my_staff);
     ?>
-    <div class="subheader">Выкупаем ваши исправные и неисправные турбины из любого города. Чтобы узнать, как продать
-        турбину,
+    <div class="subheader">Выкупаем ваши исправные и неисправные детали из любого города. Чтобы узнать, как продать,
         оставьте заявку
-    </div>
-    <div class="modal-button">
-        Оставить заявку
     </div>
     <div class="header-bar"></div>
     <div class="filter-section">
@@ -95,6 +91,19 @@ get_header();
             </div>
         </div>
     </div>
+    <form class="main_number-application-form" id="serviceForm">
+        <span class="number-application-form_label">Подайте заявку уже сейчас!</span>
+        <div class="requiredActions-section_telephone-input" id="application-form_input">
+            <input type="text" class="telephone-input_name" required placeholder="Ваше имя" id="serviceName" />
+        </div>
+        <div class="requiredActions-section_telephone-input" id="application-form_input">
+            <div class="telephone-input_preNumber">+7</div>
+            <input type="text" class="telephone-input_number" required id="servicePhone" />
+        </div>
+        <button class="number-application-form_button" id="earlyNumberApplicationButton">
+            Отправить
+        </button>
+    </form>
     <div class="section">
         <div class="section__header-container">
             <div class="header"><?=$section_header?></div>

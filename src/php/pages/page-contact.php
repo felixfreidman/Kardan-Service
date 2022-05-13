@@ -44,20 +44,20 @@ $address = get_field("address", "option");
     </div>
 </main>
 <div class="map-container">
-    <div id="map"></div>
+    <div id="newMap"></div>
 </div>
 <script>
 ymaps.ready(init);
 
 function init() {
-    var myMap = new ymaps.Map('map', {
-            center: [56.81122355, 60.72763708],
+    var myMap = new ymaps.Map('newMap', {
+            center: [52.308676, 104.294009],
             zoom: 14
         }),
 
         myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-            balloonContent: 'г. Екатеринбург, ул. Летняя, 20',
-            iconCaption: 'г. Екатеринбург, ул. Летняя, 20',
+            balloonContent: 'г. Иркутск, ул. Сурнова, 22/7, Кардан-сервис',
+            iconCaption: 'г. Иркутск, ул. Сурнова, 22/7, Кардан-сервис',
         }, {
             iconLayout: 'default#image',
             iconImageHref: "<?php echo get_template_directory_uri() . '/assets/images/content/logo_custom.svg'?>",

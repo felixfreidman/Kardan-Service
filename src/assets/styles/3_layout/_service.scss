@@ -30,7 +30,6 @@
             overflow-x: hidden;
             margin-right: 12px;
             left: -12px;
-            background-image: url(./assets/images/content/main_bg.jpg);
             background-size: cover;
             background-position: center;
         }
@@ -264,18 +263,30 @@
         }
 
         .modal-button {
-            background-color: #ff8000 !important;
-            text-shadow: 1px 1px 2px #212121;
-            margin-right: 20px;
+
+            background: linear-gradient(360deg, #ff8000 0%, #f99f38 100%);
+            box-shadow: 0 4px 12px rgb($color: #ff8000, $alpha: 40%);
+            text-shadow: none !important;
+            margin-right: 20px !important;
         }
 
         &__button {
+            padding: 20px 30px;
+            transition: all .3s ease;
+            text-align: center;
             color: #fff;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background: linear-gradient(360deg, #bb240d 0%, #e45649 100%);
+            box-shadow: 0 4px 12px rgb(222 77 64 / 40%);
+            align-items: center;
+            justify-content: center;
+            margin-right: 0px;
             font-weight: 700;
             font-size: 13px;
             line-height: 24px;
             border-radius: 12px;
-            background: $primary;
             padding: 16px 0;
             width: 33%;
             display: flex;
@@ -285,7 +296,8 @@
 
             &:hover {
                 transform: scale(1.1);
-                background: #F2685D;
+
+                background: linear-gradient(360deg, #F2685D 0%, #e45649 100%);
             }
 
             &:active {

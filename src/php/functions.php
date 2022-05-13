@@ -45,3 +45,192 @@ add_theme_support('post-thumbnails');
 // кастомный размер миниатюры
 add_image_size('my-bg', 1200, 700, true);
 add_image_size('my-mini', 330, 330, true);
+
+// AJAX и отправка писем
+
+function ajax_form_scripts()
+{
+    $translation_array = array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+    );
+    wp_localize_script('main', 'cpm_object', $translation_array);
+}
+
+add_action('wp_enqueue_scripts', 'ajax_form_scripts');
+function ajax_form()
+{
+    $name = $_REQUEST['name'];
+    $phone = $_REQUEST['phone'];
+    $mail = $_REQUEST['mail'];
+    $order = $_REQUEST['order'];
+    $response = '';
+    $thm = 'Заказ с сайта Кардан-Сервис';
+    $thm = "=?utf-8?b?" . base64_encode($thm) . "?=";
+    $msg = "<br />Имя: " . $name . "<br />
+    Телефон: " . $phone . "<br />
+    Почта: " . $mail . "<br />
+    Заказ: " . $order . "<br />";
+    $mail_to = get_field("mail", 'option');
+
+    $headers = "Content-Type: text/html; charset=utf-8\n";
+    $headers .= 'От: Parovoz.Сайт' . "\r\n";
+
+// Отправляем почтовое сообщение
+
+    if (mail($mail_to, $thm, $msg, $headers)) {
+        $response = 'Отправили!';
+    } else {
+        $response = 'Ошибка при отправке';
+    }
+
+// Сообщение о результате отправки почты
+
+    if (defined('DOING_AJAX') && DOING_AJAX) {
+        echo $response;
+        wp_die();
+    }
+}
+
+
+add_action('wp_ajax_nopriv_ajax_form', 'ajax_form');
+add_action('wp_ajax_ajax_form', 'ajax_form');
+
+
+function ajax_apply()
+{
+    $name = $_REQUEST['name'];
+    $phone = $_REQUEST['phone'];
+    $response = '';
+    $thm = 'Заявка с сайта Кардан-Сервис';
+    $thm = "=?utf-8?b?" . base64_encode($thm) . "?=";
+    $msg = "<br />Имя: " . $name . "<br />
+    Телефон: " . $phone . "<br />";
+    $mail_to = get_field("mail", 'option');
+
+    $headers = "Content-Type: text/html; charset=utf-8\n";
+    $headers .= 'От: Кардан-Сервис' . "\r\n";
+
+// Отправляем почтовое сообщение
+
+    if (mail($mail_to, $thm, $msg, $headers)) {
+        $response = 'Отправили!';
+    } else {
+        $response = 'Ошибка при отправке';
+    }
+
+// Сообщение о результате отправки почты
+
+    if (defined('DOING_AJAX') && DOING_AJAX) {
+        echo $response;
+        wp_die();
+    }
+}
+
+
+add_action('wp_ajax_nopriv_ajax_apply', 'ajax_apply');
+add_action('wp_ajax_ajax_apply', 'ajax_apply');
+
+function ajax_miniapply()
+{
+    $name = $_REQUEST['name'];
+    $phone = $_REQUEST['phone'];
+    $response = '';
+    $thm = 'Заявка с сайта Кардан-Сервис';
+    $thm = "=?utf-8?b?" . base64_encode($thm) . "?=";
+    $msg = "<br />Имя: " . $name . "<br />
+    Телефон: " . $phone . "<br />";
+    $mail_to = get_field("mail", 'option');
+
+    $headers = "Content-Type: text/html; charset=utf-8\n";
+    $headers .= 'От: Кардан-Сервис' . "\r\n";
+
+// Отправляем почтовое сообщение
+
+    if (mail($mail_to, $thm, $msg, $headers)) {
+        $response = 'Отправили!';
+    } else {
+        $response = 'Ошибка при отправке';
+    }
+
+// Сообщение о результате отправки почты
+
+    if (defined('DOING_AJAX') && DOING_AJAX) {
+        echo $response;
+        wp_die();
+    }
+}
+
+
+add_action('wp_ajax_nopriv_ajax_miniapply', 'ajax_miniapply');
+add_action('wp_ajax_ajax_miniapply', 'ajax_miniapply');
+
+function ajax_serviceform()
+{
+    $name = $_REQUEST['name'];
+    $phone = $_REQUEST['phone'];
+    $response = '';
+    $thm = 'Заявка с сайта Кардан-Сервис';
+    $thm = "=?utf-8?b?" . base64_encode($thm) . "?=";
+    $msg = "<br />Имя: " . $name . "<br />
+    Телефон: " . $phone . "<br />";
+    $mail_to = get_field("mail", 'option');
+
+    $headers = "Content-Type: text/html; charset=utf-8\n";
+    $headers .= 'От: Кардан-Сервис' . "\r\n";
+
+// Отправляем почтовое сообщение
+
+    if (mail($mail_to, $thm, $msg, $headers)) {
+        $response = 'Отправили!';
+    } else {
+        $response = 'Ошибка при отправке';
+    }
+
+// Сообщение о результате отправки почты
+
+    if (defined('DOING_AJAX') && DOING_AJAX) {
+        echo $response;
+        wp_die();
+    }
+}
+
+
+add_action('wp_ajax_nopriv_ajax_serviceform', 'ajax_serviceform');
+add_action('wp_ajax_ajax_serviceform', 'ajax_serviceform');
+
+
+function ajax_othercityform()
+{
+    $name = $_REQUEST['name'];
+    $phone = $_REQUEST['phone'];
+    $city = $_REQUEST['city'];
+    $response = '';
+    $thm = 'Заявка с сайта Кардан-Сервис';
+    $thm = "=?utf-8?b?" . base64_encode($thm) . "?=";
+    $msg = "<br />Имя: " . $name . "<br />
+    Телефон: " . $phone . "<br />
+    Город: " . $city . "<br />";
+    $mail_to = get_field("mail", 'option');
+
+    $headers = "Content-Type: text/html; charset=utf-8\n";
+    $headers .= 'От: Кардан-Сервис' . "\r\n";
+
+// Отправляем почтовое сообщение
+
+    if (mail($mail_to, $thm, $msg, $headers)) {
+        $response = 'Отправили!';
+    } else {
+        $response = 'Ошибка при отправке';
+    }
+
+// Сообщение о результате отправки почты
+
+    if (defined('DOING_AJAX') && DOING_AJAX) {
+        echo $response;
+        wp_die();
+    }
+}
+
+
+add_action('wp_ajax_nopriv_ajax_othercityform', 'ajax_othercityform');
+add_action('wp_ajax_ajax_othercityform', 'ajax_othercityform');

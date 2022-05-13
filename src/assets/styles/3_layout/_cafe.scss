@@ -5,15 +5,26 @@
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .header-bar {
+        background: linear-gradient(90deg, #f99f38 0%, rgba(255, 0, 4, 0) 99.23%) !important;
+        margin-top: 40px;
+        width: 80%;
+        height: 4px;
+        margin-bottom: 40px;
+    }
 }
 
 .main {
     .header-section-header {
         font-weight: 700;
         font-size: 44px;
-        line-height: 20px;
         color: #FFFFFF;
         margin-top: 4px;
+        width: 80%;
     }
 
     &__actions {
@@ -158,8 +169,9 @@
 }
 
 .main_welcome-section {
-    height: 100vh;
+    height: 70vh;
     width: calc(100% - 140px);
+    max-width: 1170px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -173,12 +185,15 @@
     font-size: 50px;
     font-family: "Geometria";
     margin-bottom: 20px;
+    width: 60%;
 }
 
 .welcome-section_subheader {
     color: #fff;
-    font-size: 30px;
+    font-size: 22px;
+    line-height: 28px;
     font-family: "Geometria";
+    width: 50%;
 }
 
 
@@ -190,18 +205,67 @@
 .main_intro-section {
     height: fit-content;
     height: -moz-fit-content;
-    background-position: center;
-    background-attachment: fixed;
-    background-image: url(//f2.lpcdn.site/e602bdcc02a19099706bb170add244c6/94d9ba77076ea29358cedd84bac5fbb1.jpg);
+    background-image: url(https://t3.ftcdn.net/jpg/02/94/99/24/360_F_294992494_kPG2PgIe6Jn9sU4OcSw6Th6SvZD4OfWy.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
-    flex-direction: column;
-    padding: 20px 10%;
+    align-items: center;
+    padding: 0px;
     position: relative;
     cursor: default;
+    width: 100%;
+    background-position: 100% 60%;
+
+    box-shadow: inset 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+
+    .second-block {
+        padding: 40px 70px 40px 0px !important;
+    }
+
+    .intro-section__block {
+        width: calc(50% - 70px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 40px 0px 40px 70px;
+
+        .intro-section__title {
+            font-size: 22px;
+            line-height: 26px;
+            color: #F99F38;
+            margin-bottom: 5px;
+        }
+
+        .intro-section__subtitle {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .intro-section__button {
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            padding: 10px 20px;
+            transition: all .3s ease;
+            text-align: center;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0 !important;
+            background: linear-gradient(360deg, #ff8000 0%, #f99f38 100%);
+            box-shadow: 0 4px 12px rgb(255 128 0 / 40%);
+            text-shadow: none !important;
+        }
+    }
 }
 
 .intro-section_text {
-    color: #fff;
+    color: #212121;
     font-family: "Geometria";
     font-weight: 500;
     font-size: 20px;
@@ -214,23 +278,21 @@
 
 /* Services and Benefits Section --------------------- */
 
-.main_services-section,
-.main_benefit-section {
+.main_services-section {
     height: fit-content;
     height: -moz-fit-content;
-    padding: 0px 70px;
+    padding: 0px 135px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: relative;
     cursor: default;
-    width: calc(100% - 140px);
-    height: fit-content;
+    width: calc(100% - 270px);
+    height: 60vh;
 }
 
 .main_services-section {
-    margin-top: 100px;
-    border-radius: 22px 22px 0 0;
+    margin-top: 40px;
 }
 
 .main_benefit-section {
@@ -259,22 +321,44 @@
     font-size: 20px;
     font-family: "Geometria";
     font-weight: 400;
-    text-align: center;
+    text-align: left;
 }
 
 .services-section {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 100px;
     width: 100%;
+
+    &:last-child {
+        margin-bottom: -160px;
+    }
 }
 
 .section_content {
-    width: 100%;
+    width: calc(31% - 40px);
+    margin-right: 2%;
+    margin-bottom: 2%;
+    background-color: rgba($color: #fff, $alpha: 0.9);
     display: flex;
-    flex-direction: column;
     align-items: center;
+    padding: 20px;
+    position: relative;
+    border-radius: 8px;
+
+    .section-number {
+        font-size: 54px;
+        margin-right: 20px;
+        color: #f99f38;
+    }
+
+    .section-header {
+        font-size: 15px;
+        color: #212121;
+        line-height: 20px;
+    }
 }
 
 .main_benefit-section .services-section .section_content .content-head {
@@ -385,6 +469,21 @@
     width: 75%;
     height: 100%;
     border-radius: 0px 8px 8px 0px;
+}
+
+.telephone-input_name {
+    outline: none;
+    border: none;
+    background-color: #212121;
+    border: 1px solid #ff8000;
+    color: #ff8000;
+    margin-left: 0px;
+    padding: 0;
+    padding-left: 10px;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
 }
 
 .requredActions-section_apply-button {
@@ -585,17 +684,38 @@ input[name="FAQsection"]:checked+label>.question-block_answer-block {
 }
 
 .number-application-form_button {
-    color: white;
+    padding: 15px 0;
     width: 100%;
-    height: 50px;
-    font-size: 24px;
-    font-family: "Geometria";
-    font-weight: 500;
-    background-color: #ff8000;
+    transition: all .3s ease;
+    text-align: center;
+    color: #fff;
     border: none;
     border-radius: 8px;
     outline: none;
+    background: linear-gradient(360deg, #ff8000 0%, #f99f38 100%);
+    box-shadow: 0 4px 12px rgb(222 77 64 / 40%);
+    align-items: center;
+    justify-content: center;
+    margin-right: 0px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+        background: linear-gradient(360deg, #ff8000 0%, #f99f38 100%);
+    }
+
+    &:active {
+        background: $red;
+    }
 }
+
 
 .header_contact-section-mobile {
     display: none;

@@ -1,61 +1,189 @@
 
+// Расширяю возможности локального хранилища
 Storage.prototype.setObj = function (key, obj) {
     return this.setItem(key, JSON.stringify(obj))
 }
 Storage.prototype.getObj = function (key) {
     return JSON.parse(this.getItem(key))
 }
+// Объявляю глобальный счетчик, если уже такой есть, то беру значение с него, если же он новый, то с 0 ведется счет
 var globalCounter = 0;
 // localStorage.removeItem("globalCounter")
-// localStorage.removeItem("bookedServices")
+// localStorage.removeItem("orderCart")
 if (localStorage.getItem("globalCounter")) {
     globalCounter = localStorage.getItem("globalCounter");
 }
-
+// Объявляю пустой массив заказов, если же в корзине есть какие-то заказы, тогда я присваиваю массив сохранненому значению
 
 let booksArray = new Array();
-if (localStorage.getObj("bookedServices")) {
-    booksArray = localStorage.getObj("bookedServices");
+if (localStorage.getObj("orderCart")) {
+    booksArray = localStorage.getObj("orderCart");
 }
 
+// Когда мы находимся на странице любого магазина мы навешиваем события на кнопки, чтобы добавлять в корзину
+
+// Описание работы функции
+// Функция добавления работает достаточно просто, если произошло нажатие на кнопку, на кнопку попадает класс buttonClicked
+// Затем я ищу нужную карточку, где есть кнопка с таким классом, затем я забираю все нужные данные с этой карточки
+// А именно Название, Цену, Описание, а также присваиваю уникальный идентификатор через globalCounter, все эти
+// Данные я помешаю в объект заказа, а затем этот объект помещаю в массив объектов заказа))
+// Этот массив я отправляю в локальное хранилище, чтобы потом уже парсить данные с него 
+
 if (window.location.href.includes('shop')) {
-    const orderButtons = document.querySelectorAll('.container-card__button');
+    console.log('logged');
+    const orderButtons = document.querySelectorAll('.cart-button');
     orderButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // function AddToCart
             button.classList.add("buttonClicked");
             const allCards = document.querySelectorAll('.container-card');
             allCards.forEach(card => {
                 if (card.querySelector('.buttonClicked')) {
-                    const orderHeader = card.querySelector(".container-card__name").textContent;
+                    const orderHeader = card.querySelector(".container-card__name").textContent.trim();
+                    const orderPrice = card.querySelector(".container-card__price").textContent.trim();
+                    const orderDescription = card.querySelector(".container-card__description").textContent.trim();
+                    const orderObject = {
+                        orderID: parseInt(globalCounter),
+                        orderName: orderHeader,
+                        orderPrice: orderPrice,
+                        orderDescription: orderDescription
+                    };
+                    booksArray.push(orderObject);
+                    localStorage.setObj("orderCart", booksArray);
+                    globalCounter++;
+                    localStorage.setItem("globalCounter", globalCounter);
+                    setTimeout(() => {
+                        window.location.href = 'cart';
+                    }, 600);
                 }
-            })
-            headerName.textContent = bathroomHeader.textContent;
-            const inputPrice = document.querySelectorAll("[name='optionPrice']");
-            const image = document.querySelector('.swiper-slide-active').querySelector('img').src;
-            let checkedPrice;
-            inputPrice.forEach(input => {
-                if (input.checked) {
-                    checkedPrice = document.querySelector(`[for=${input.id}]`).querySelector('.price').textContent;
-                }
-            })
-            let bathroomObject = {
-                serviceCounter: parseInt(globalCounter),
-                bathName: bathroomHeader.textContent,
-                bathPrice: checkedPrice,
-                bathImage: image,
-            }
-            booksArray.push(bathroomObject);
-            localStorage.setObj("bookedServices", booksArray);
-            globalCounter++;
-            localStorage.setItem("globalCounter", globalCounter);
+            });
         });
     });
 }
 
-function addToCart() {
-
+if (window.location.href.includes('staff')) {
+    console.log('logged');
+    const orderButton = document.querySelector('.cart-button');
+    orderButton.addEventListener('click', () => {
+        const orderHeader = document.querySelector(".buy-parent__product-header").textContent.trim();
+        const orderPrice = document.querySelector(".buy-parent__price-tag").textContent.trim();
+        const orderDescription = document.querySelector(".buy-parent__product-description").textContent.trim();
+        const orderObject = {
+            orderID: parseInt(globalCounter),
+            orderName: orderHeader,
+            orderPrice: orderPrice,
+            orderDescription: orderDescription
+        };
+        booksArray.push(orderObject);
+        localStorage.setObj("orderCart", booksArray);
+        globalCounter++;
+        localStorage.setItem("globalCounter", globalCounter);
+        setTimeout(() => {
+            window.location.href = 'cart';
+        }, 600);
+    });
 }
+// Когда мы находимя на странице корзины, добавляем весь функционал для блоков
+if (window.location.href.includes('/cart')) {
+
+    setTimeout(updateTotalNumber, 100)
+    setTimeout(updateUserOrderField, 100)
+    if (localStorage.getObj("orderCart")) {
+        // Создание блоков в списке заказов
+        const orderArray = localStorage.getObj("orderCart");
+        const orderContainer = document.querySelector(".orders-container");
+        orderArray.forEach(order => {
+            const orderName = order.orderName;
+            const orderPrice = order.orderPrice;
+            const orderID = order.orderID;
+            const orderDescription = order.orderDescription;
+            const readyOrder = createOrder(orderName, orderPrice, orderID, orderDescription);
+            orderContainer.insertAdjacentHTML('beforeend', readyOrder);
+            setTimeout(deleteOrderFromLists, 100)
+        });
+        // Создание элементов в списке заказов в блоке Всего
+        const orderList = document.querySelector(".order-list");
+        let serviceName = '';
+        let servicePrice = '';
+        const ordersBlock = orderContainer.querySelectorAll('.order-container');
+        ordersBlock.forEach((order, index) => {
+            serviceName = order.querySelector('.order-header').textContent.trim();
+            servicePrice = order.querySelector('.order-cost').textContent.trim();
+            servicePrice = servicePrice.match(/\d+/g);
+            servicePrice = servicePrice[0];
+            const totalOrder = createOrderTotal(serviceName, servicePrice, index);
+            orderList.insertAdjacentHTML('beforeend', totalOrder);
+        })
+
+    }
+}
+
+
+// Скрытое поле формы, которое собирает всю информацию о заказе
+function updateUserOrderField() {
+    const userOrderField = document.getElementById("userOrder");
+    const userOrderList = document.querySelectorAll(".order-item");
+    const totalPrice = document.getElementById("orderTotalPrice").textContent.trim();
+    let orderString = '';
+    userOrderList.forEach(order => {
+        const orderName = order.querySelector(".order-item__name").textContent.trim();
+        const orderPrice = order.querySelector(".order-item__price").textContent.trim();
+        orderString = `${orderString} ${orderName} - ${orderPrice}.   `
+
+    });
+    let totalString = `Всего: ${totalPrice}`;
+    orderString += totalString;
+    userOrderField.value = orderString;
+    console.log(userOrderField.value);
+}
+
+// Фунция обновления числа Всего с списке заказов
+// Собирает все числа из списка, складывает их и выводит
+
+function updateTotalNumber() {
+    if (document.querySelectorAll(".order-item__price")) {
+        const allOrdersNums = document.querySelectorAll(".order-item__price");
+        const totalNum = document.getElementById("orderTotalPrice");
+        let totalSum = 0;
+        allOrdersNums.forEach(price => {
+            var realPrice = parseInt(price.textContent.trim())
+            totalSum += realPrice;
+        })
+        let totalNumFinal = totalNum.childNodes[0];
+        totalNumFinal.nodeValue = totalSum + ' ';
+    }
+}
+
+// Функция удаления из списка заказа
+// Собирает все крестики, забирает у них все идентификаторы и забирает сам номер
+// Номер креста равен номеру блока, по нажатию на крест, ищется блок и элемент списка с таким же номером
+// из блока заказов удаляется нужный блок, затем создается новый массив заказов на основе старого - удаленный блок
+// в локальное хранилище добавляется уже новый массив, перезарписывая старый, затем страница перезагружается
+function deleteOrderFromLists() {
+    const allCrosses = document.querySelectorAll(".js-cross");
+    var orderContainer = document.querySelector(".orders-container");
+    var orderList = document.querySelector(".order-list");
+    allCrosses.forEach(cross => {
+        cross.addEventListener("click", (event) => {
+            let crossCounter = cross.id.replace('cross', '');
+            const orderItem = document.getElementById(`service${crossCounter}`);
+
+            orderContainer.removeChild(orderItem);
+            crossCounter = parseInt(crossCounter);
+            var filteredArray = booksArray.filter(function (value) {
+                value = value.orderID;
+                return value != crossCounter;
+            });
+            localStorage.setObj("orderCart", filteredArray);
+            location.reload()
+
+        })
+    })
+}
+
+// Функция-фабрика для создания блоков с заказами в корзине
+// На вход 4 параметра, которые нужны, чтобы вставить нужные данные в блок-шаблон
+// Из названия понятно, кто есть кто)
+// Возвращает блок HTML-кода
 function createOrder(name, price, id, description) {
     const HTMLString =
         `
@@ -69,7 +197,7 @@ function createOrder(name, price, id, description) {
                     <div class="order-header">
                         ${name}
                     </div>
-                    <div class="order-cost">${price} ₽
+                    <div class="order-cost">${price}
                     </div>
                 </div>
             </div>
@@ -83,203 +211,41 @@ function createOrder(name, price, id, description) {
         `
     return HTMLString;
 }
-function deleteOrderFromLists() {
-    const allCrosses = document.querySelectorAll(".js-cross");
-    var orderContainer = document.querySelector(".orders-container");
-    var orderList = document.querySelector(".order-list");
-    var length = document.querySelectorAll('.remove').length;
-    allCrosses.forEach(cross => {
-        cross.addEventListener("click", (event) => {
-            let crossCounter = cross.id.replace('cross', '');
-
-            const orderItem = document.getElementById(`service${crossCounter}`);
-            const orderTotalItem = document.getElementById(`totalOrderID${length + crossCounter}`);
-            orderContainer.removeChild(orderItem);
-            crossCounter = parseInt(crossCounter);
-            var filteredArray = booksArray.filter(function (value, index, arr) {
-                value = value.serviceCounter;
-                return value != crossCounter;
-            });
-            localStorage.setObj("bookedServices", filteredArray);
-
-            location.reload()
-        })
-    })
-}
-
-const idArray = new Array();
-function compareAndUpdateIDs() {
-    const allBathOrders = document.querySelectorAll('.order-container');
-
-    allBathOrders.forEach(bathOrder => {
-        let bathID = bathOrder.id.match(/\d+/g);
-        bathID = bathID[0];
-        idArray.push(bathID);
-    })
-    const allTotalOrders = document.querySelectorAll('.order-item');
-    for (let counter = 0; counter < idArray.length; counter++) {
-        const orderItem = allTotalOrders.item(counter);
-        const orderHeader = orderItem.querySelector('.order-item__name').textContent;
-        if (orderHeader.includes('Станция')) {
-
-            allTotalOrders.item(counter).id = `totalOrderID${idArray[counter]}`;
-        }
-    }
+// Функция-фабрика для создания блоков с заказами в корзине
+// На вход 3 параметра, которые нужны, чтобы вставить нужные данные в блок-шаблон
+// Из названия понятно, кто есть кто)
+// Возвращает блок HTML-кода
+function createOrderTotal(name, price, id) {
+    const HTMLString =
+        `
+      <div class="order-item order-item--service" id="totalOrderID${id}">
+        <div class="order-item__name" id="orderServiceName">${name}</div>
+        <div class="order-item__bar"> </div>
+        <div class="order-item__price" id="orderServicePrice">${price} <span>₽</span></div>
+    </div>
+    `;
+    return HTMLString;
 }
 
 
-if (window.location.href.includes('/cart')) {
-    if (localStorage.getObj("bookedServices")) {
-        var bookedItems = localStorage.getObj("bookedServices");
-        var orderContainer = document.querySelector(".orders-container");
-        var orderList = document.querySelector(".order-list");
-        let counter = 0;
-        bookedItems.forEach(order => {
-            const serviceName = order.bathName;
-            const servicePrice = order.bathPrice;
-            const serviceCounter = order.serviceCounter;
-            const serviceImage = order.bathImage;
-            const readyOrder = createOrder(serviceName, servicePrice, serviceCounter, serviceDesription);
-            orderContainer.insertAdjacentHTML('beforeend', readyOrder);
-            setTimeout(deleteOrderFromLists, 100)
-        });
-
-        const ordersContainer = document.querySelectorAll(".order-container");
-
-        setTimeout(compareAndUpdateIDs, 1200);
-        ordersContainer.forEach(order => {
-            let servicePrice = '';
-            if (order.querySelector('.order-cost') && order.querySelector('select')) {
-                servicePrice = order.querySelector('.order-cost').textContent;
-                let calendar = order.querySelector('[name="orderDate"]');
-                calendar.valueAsDate = new Date();
-                if (servicePrice.includes('5 800')) {
-                    let select = order.querySelector('select');
-                    select.value = '16:00';
-                } else {
-                    let select = order.querySelector('select');
-                    select.value = '12:00';
-                }
 
 
+// const idArray = new Array();
+// function compareAndUpdateIDs() {
+//     const allBathOrders = document.querySelectorAll('.order-container');
 
+//     allBathOrders.forEach(bathOrder => {
+//         let bathID = bathOrder.id.match(/\d+/g);
+//         bathID = bathID[0];
+//         idArray.push(bathID);
+//     })
+//     const allTotalOrders = document.querySelectorAll('.order-item');
+//     for (let counter = 0; counter < idArray.length; counter++) {
+//         const orderItem = allTotalOrders.item(counter);
+//         const orderHeader = orderItem.querySelector('.order-item__name').textContent.trim();
+//         if (orderHeader.includes('Станция')) {
 
-                const totalTime = order.querySelector('.timeInput');
-                const selectTime = order.querySelector('.selectInput');
-                totalTime.addEventListener('input', () => {
-
-
-                    let value = totalTime.value;
-                    const allOrders = document.querySelectorAll('.order-item');
-                    const bathHeader = order.querySelector('.bath-header').textContent;
-                    allOrders.forEach(orderTotal => {
-
-                        let orderID = order.id.match(/\d+/g);
-                        orderID = orderID[0];
-                        let orderTotalID = orderTotal.id.match(/\d+/g);
-                        orderTotalID = orderTotalID[0];
-                        if (orderTotal.querySelector(".order-item__name").textContent == bathHeader && (orderID == orderTotalID)) {
-                            let orderPrice = document.querySelector('.bath-cost').textContent;
-                            orderPrice = orderPrice.match(/\d+/g);
-                            orderPrice = orderPrice[0] + orderPrice[1];
-                            orderPrice = parseInt(orderPrice);
-                            orderPrice *= value;
-                            orderTotal.querySelector('.order-item__price').textContent = orderPrice + ' ₽';
-                            updateTotalNumber()
-                            setTimeout(updateUserOrderField, 100)
-                        }
-                    })
-                })
-                selectTime.addEventListener('change', () => {
-                    let value = selectTime.value;
-                    switch (value) {
-                        case '16:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '17:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '18:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '19:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '20:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '21:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '22:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '23:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '24:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '01:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '02:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '03:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '04:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        case '05:00':
-                            order.querySelector('.bath-cost').textContent = ' 5 800  ₽ / час';
-                            break;
-                        default:
-                            order.querySelector('.bath-cost').textContent = ' 3 600  ₽ / час';
-                            break;
-
-                    }
-                    const allOrders = document.querySelectorAll('.order-item');
-                    const bathHeader = order.querySelector('.bath-header').textContent;
-                    allOrders.forEach(orderInBook => {
-                        let orderID = order.id.match(/\d+/g);
-                        orderID = orderID[0];
-                        let orderTotalID = orderInBook.id.match(/\d+/g);
-                        orderTotalID = orderTotalID[0];
-                        if (orderInBook.querySelector(".order-item__name").textContent == bathHeader && (orderID == orderTotalID)) {
-                            let orderPrice = order.querySelector('.bath-cost').textContent;
-                            orderPrice = orderPrice.match(/\d+/g);
-                            orderPrice = orderPrice[0] + orderPrice[1];
-                            orderPrice = parseInt(orderPrice);
-                            orderInBook.querySelector('.order-item__price').textContent = orderPrice + ' ₽';
-                            updateTotalNumber()
-                            setTimeout(updateUserOrderField, 100)
-                        }
-                    })
-                })
-            }
-
-        });
-    }
-
-}
-function updateTotalNumber() {
-    if (document.querySelectorAll(".order-item__price")) {
-        const allOrdersNums = document.querySelectorAll(".order-item__price");
-        const totalNum = document.getElementById("orderTotalPrice");
-        let totalSum = 0;
-        allOrdersNums.forEach(price => {
-            var realPrice = parseInt(price.textContent)
-            totalSum += realPrice;
-        })
-        let totalNumFinal = totalNum.childNodes[0];
-        totalNumFinal.nodeValue = totalSum + ' ';
-    }
-    else {
-        const totalNum = document.getElementById("orderTotalPrice");
-        let totalSum = 0;
-        let totalNumFinal = totalNum.childNodes[0];
-        totalNumFinal.nodeValue = totalSum + ' ';
-    }
-}
+//             allTotalOrders.item(counter).id = `totalOrderID${idArray[counter]}`;
+//         }
+//     }
+// }

@@ -11,7 +11,7 @@ $staff_description = get_field("staff_description");
 <main class="main main-service">
     <div class="main--buy buy-parent">
         <div class="container">
-            <div class="swiper-container" style="background-image:url(<?=$staff_bg?>');">
+            <div class="swiper-container" style="background-image:url('<?=$staff_bg?>');">
             </div>
             <div class="buy-parent__info">
                 <div class="buy-parent__section">
@@ -25,7 +25,7 @@ $staff_description = get_field("staff_description");
                         </div>
 
                         <div class="buy-parent__button modal-button">Быстрый заказ</div>
-                        <div class="buy-parent__button">Добавить в корзину</div>
+                        <div class="buy-parent__button cart-button">Добавить в корзину</div>
                     </div>
                 </div>
             </div>
