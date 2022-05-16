@@ -88,7 +88,7 @@
 
         .book-section {
             top: 97px;
-            right: 140px;
+            right: 70px;
             position: absolute;
             background: radial-gradient(135.89% 108.41% at 96.93% 46.23%, rgba(212, 184, 156, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
             backdrop-filter: blur(31.6089px);
@@ -376,4 +376,65 @@
     bottom: -8px;
     left: 0;
     display: block;
+}
+
+@media screen and (max-width: 1024px) {
+    .main-book .form-book .contact-section {
+        width: 100%;
+    }
+
+    .main-book .orders-container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main-book .form-book .book-section {
+        position: static;
+        width: calc(100% - 64px);
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main-book {
+        width: calc(100% - 40px);
+        padding: 130px 20px 17px;
+        padding-top: 120px !important;
+
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main-book .form-book .contact-section .section-row {
+        flex-direction: column;
+    }
+
+    .main-book .form-book .contact-section .form-label--small {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .main-book .form-book .book-section {
+        padding: 20px;
+
+        min-width: auto;
+        width: calc(100% - 40px);
+    }
+
+    .main-book .order-container {
+        padding: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .main-book .order-container .cross {
+        top: 30px;
+        right: 46px;
+    }
+
+    .main-book .form-book .book-section .order-button {
+        padding: 12px 0;
+        font-size: 12px;
+        line-height: 12px;
+    }
 }

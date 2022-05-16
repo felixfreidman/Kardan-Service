@@ -19,7 +19,7 @@ $address = get_field("address", "option");
         <div class="contact-column">
             <div class="column-header">Адреса</div>
             <div class="column-adress"><?=$address?></div>
-            <div class="column-caption">Ежедневно, круглосуточно</div>
+            <div class="column-caption">ПН-ПТ 9:00–17:00</div>
         </div>
         <div class="contact-column">
             <div class="column-header">Телефон</div><a class="column-link" href="tel:+<?=$telephone_first?>">+

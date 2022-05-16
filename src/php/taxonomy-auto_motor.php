@@ -39,9 +39,6 @@ $i = 0;
         кардан,
         оставьте заявку
     </div>
-    <div class="modal-button">
-        Оставить заявку
-    </div>
     <div class="header-bar"></div>
     <div class="filter-section">
         <div class="filter-header">
@@ -111,5 +108,18 @@ $i = 0;
         </div>
     </div>
 </main>
+<div class="main_intro-section">
+    <div class="intro-section__block">
+        <div class="intro-section__title">Доставка в любое место</div>
+        <div class="intro-section__subtitle">Доставляем в любое место </div>
+        <!-- <div class="intro-section__button modal-button">Оставить заявку</div> -->
+    </div>
+    <div class="intro-section__block second-block">
+        <div class="intro-section__title">Гарантия на запчасти до 2-х лет</div>
+        <div class="intro-section__subtitle">Гарантируем, что помняем детали в случае нашей ошибки</div>
+        <!-- <div class="intro-section__button modal-button">Оставить заявку</div> -->
+    </div>
+
+</div>
 <?php
 get_footer();

@@ -6,51 +6,77 @@ get_header(); ?>
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="slider-container container--kardan">
-                        <div class="header">Ремонт и изготовление карданных валов</div>
-                        <div class="subheader">Наши мастера выявят все дефекты и устранят их</div>
-                        <div class="apply-btn modal-button">Оставить заявку</div>
+                        <div class="header">ПРОДАЖА И ВОССТАНОВЛЕНИЕ КАРДАННЫХ ВАЛОВ</div>
+                        <div class="subheader">ОТРЕМОНТИРУЕМ ВАШ КАРДАННЫЙ ВАЛ ИЛИ ПРЕДЛОЖИМ К ПОКУПКЕ ВОССТАНОВЛЕННЫЙ
+                            ВАРИАНТ</div>
+                        <div class="special-row">
+                            <a class="apply-btn special-button-updated" href="<?=home_url();?>/kardan">Купить
+                                восстановленный</a>
+                            <a class="apply-btn special-button-updated orange-button"
+                                href="<?=home_url();?>/kardan">Отремонтировать
+                                сломанный</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slider-container container--turbo">
+                        <div class="header">ПРОДАЖА И ВОССТАНОВЛЕНИЕ ТУРБОКОМПРЕССОРОВ</div>
+                        <div class="subheader">ОТРЕМОНТИРУЕМ ВАШУ ТУРБИНУ ИЛИ ПРЕДЛОЖИМ К ПОКУПКЕ ВОССТАНОВЛЕННУЮ </div>
+                        <div class="special-row">
+                            <a class="apply-btn special-button-updated" href="<?=home_url();?>/turbo">Купить
+                                восстановленную</a>
+                            <a class="apply-btn special-button-updated orange-button"
+                                href="<?=home_url();?>/turbo">Отремонтировать
+                                сломанную</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slider-container container--shop">
+                        <div class="header">Наш интернет-магазин</div>
+                        <div class="subheader">АКТУАЛЬНОЕ НАЛИЧИЕ ВОССТАНОВЛЕННЫХ КАРДАННЫХ ВАЛОВ И
+                            ТУРБОКОМПРЕССОРОВ
+                        </div>
+
+                        <a class="apply-btn" href="<?=home_url();?>#shop">Перейти</a>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="slider-container container--rotor">
                         <div class="header">Балансировка и обслуживание роторов</div>
                         <div class="subheader">Наши мастера выявят все дефекты и устранят их</div>
-                        <div class="apply-btn modal-button">Оставить заявку</div>
+                        <a class="apply-btn" href="<?=home_url();?>/rotor">Перейти</a>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="slider-container container--turbo">
-                        <div class="header">Ремонт и обслуживание турбин</div>
+                    <div class="slider-container container--treatment">
+                        <div class="header">Механическая обработка</div>
                         <div class="subheader">Наши мастера выявят все дефекты и устранят их</div>
-                        <div class="apply-btn modal-button">Оставить заявку</div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="slider-container container--shop">
-                        <div class="header">Наш интернет-магазин</div>
-                        <div class="subheader">Узнайте, какие услуги актуальные и сколько они стоят</div>
-
-                        <a class="apply-btn" href="<?=home_url();?>#shop">Перейти</a>
+                        <a class="apply-btn" href="<?=home_url();?>/treatment">Узнать больше</a>
                     </div>
                 </div>
             </div>
             <div class="swiper-pagination"> </div>
             <div class="swiper-navigation">
                 <div class="swiper-button-prev"> </div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-button-next" id="shop"></div>
             </div>
         </div>
     </div>
-    <div class="main--shop shop-parent" id="shop">
+    <div class="main--shop shop-parent">
         <div class="shop-parent__subtitle">Интернет-магазин</div>
-        <div class="row">
+        <div class="row" id="services">
             <div class="container">
-                <a class="shop-image shop-image--kardan" href='<?=home_url();?>/kardan-shop' data-aos="flip-left"> </a>
-                <a class="shop-image shop-image--turbo" href='<?=home_url();?>/turbo-shop' data-aos="flip-right"> </a>
+                <a class="shop-image shop-image--kardan" href='<?=home_url();?>/kardan-shop' data-aos="flip-left">
+                </a>
+                <a class="shop-image shop-image--turbo" href='<?=home_url();?>/turbo-shop' data-aos="flip-right">
+                </a>
             </div>
         </div>
     </div>
-    <div class="main--kardan kardan-parent" id="services">
+
+    <div class="shop-parent__subtitle header--updated">Услуги</div>
+    <div class="main--kardan kardan-parent">
         <div class="image-container"> <img
                 src="https://ruskardan.ru/image/catalog/content/mercedes/sprinter/Sprinter_6_big.jpg" alt=""
                 data-aos="flip-up">
@@ -114,11 +140,11 @@ get_header(); ?>
                 <div class="form-parent__bar"></div>
             </div>
             <div class="form-apply">
-                <div class="special-row" style="width: 70% !important"><label class="form-parent__label"
+                <div class="special-row" style="width: 70%"><label class="form-parent__label"
                         for="userNameMini">Имя<input id="userNameMini" class="form-parent__input"
                             type="text"></label><label class="form-parent__label" for="userPhoneMini">Телефон<input
                             id="userPhoneMini" class="form-parent__input" type="text"></label>
-                </div><button class="form-parent__button miniButton" type="submit">Отправитьь</button>
+                </div><button class="form-parent__button miniButton" type="submit">Отправить</button>
             </div>
         </form>
     </div>
@@ -128,7 +154,8 @@ get_header(); ?>
         </div>
         <div class="content-container">
             <div class="kardan-parent__subtitle">Балансировка роторов</div>
-            <div class="kardan-parent__content">Если у Вас нет своего балансировочного оборудования и специалистов, но
+            <div class="kardan-parent__content">Если у Вас нет своего балансировочного оборудования и специалистов,
+                но
                 стоят задачи балансировки отдельных деталей или больших партий однотипных изделий, мы готовы
                 квалифицировано проконсультировать и решить задачи балансировки.</div>
             <div class="special-row">
@@ -137,13 +164,14 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <div class="main--benefits benefits-parent" style="margin-bottom: 150px;">
+    <div class="main--benefits benefits-parent last-block" style="margin-bottom: 150px;">
         <div class="content-container">
             <div class="benefits-parent__subtitle">Механическая обработка</div>
             <div class="benefits-parent__content">
                 Механическая обработка — обработка изделий из стали и других материалов с помощью механического
                 воздействия с применением резца, сверла, фрезы и другого режущего инструмента. Сам процесс обработки
-                осуществляется на металлорежущих станках, в установленном порядке согласно технологическому процессу.
+                осуществляется на металлорежущих станках, в установленном порядке согласно технологическому
+                процессу.
             </div>
             <div class="benefits-parent__list">
                 <div class="benefits-parent__item">
@@ -176,7 +204,7 @@ get_header(); ?>
         </div>
     </div>
 
-    <div class="main--navigation navigation-parent">
+    <!-- <div class="main--navigation navigation-parent">
         <div class="navigation-parent__title">/Что мы предлагаем?</div>
         <div class="navigation-parent__subtitle">Специалисты своего дела</div>
         <div class="navigation-parent__container">
@@ -209,7 +237,7 @@ get_header(); ?>
                 </div><a class="navigation-parent__more" href="#shop"> </a>
             </div>
         </div>
-    </div>
+    </div> -->
 </main>
 <div class="map-container" id="contacts">
     <div id="newMap"></div>

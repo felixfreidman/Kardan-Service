@@ -73,10 +73,10 @@ $form_subheader = get_field('form_subheader');
                 <div class="form-parent__bar"></div>
             </div>
             <div class="form-apply">
-                <div class="special-row" style="width: 70% !important"><label class="form-parent__label"
-                        for="userNameMini">Имя<input id="userNameMini" class="form-parent__input"
-                            type="text"></label><label class="form-parent__label" for="userPhoneMini">Телефон<input
-                            id="userPhoneMini" class="form-parent__input" type="text"></label>
+                <div class="special-row" style=""><label class="form-parent__label" for="userNameMini">Имя<input
+                            id="userNameMini" class="form-parent__input" type="text"></label><label
+                        class="form-parent__label" for="userPhoneMini">Телефон<input id="userPhoneMini"
+                            class="form-parent__input" type="text"></label>
                 </div><button class="form-parent__button miniButton" type="submit">Оставить</button>
             </div>
         </form>

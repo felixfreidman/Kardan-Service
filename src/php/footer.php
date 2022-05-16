@@ -24,7 +24,7 @@ $address = get_field("address", "option");
         </div>
     </div>
     <div class="footer-row">
-        <div class="company-info"><span class="company-name">©2019–2022 Кардан Сервис</span><span
+        <div class="company-info"><span class="company-name">©2022 ООО "Кардан Сервис"</span><span
                 class="company-privacy">Политика конфиденциальности</span></div>
         <div class="developer-info">Сделано в Freidman Solutions</div>
     </div>

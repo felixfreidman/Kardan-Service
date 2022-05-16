@@ -26,6 +26,7 @@ get_header();
     <div class="subheader">Выкупаем ваши исправные и неисправные детали из любого города. Чтобы узнать, как продать,
         оставьте заявку
     </div>
+
     <div class="header-bar"></div>
     <div class="filter-section">
         <?php
@@ -104,6 +105,7 @@ get_header();
             Отправить
         </button>
     </form>
+
     <div class="section">
         <div class="section__header-container">
             <div class="header"><?=$section_header?></div>
@@ -120,6 +122,19 @@ get_header();
         </div>
     </div>
 </main>
+<div class="main_intro-section">
+    <div class="intro-section__block">
+        <div class="intro-section__title">Доставка в любое место</div>
+        <div class="intro-section__subtitle">Доставляем в любое место </div>
+        <!-- <div class="intro-section__button modal-button">Оставить заявку</div> -->
+    </div>
+    <div class="intro-section__block second-block">
+        <div class="intro-section__title">Гарантия на запчасти до года</div>
+        <div class="intro-section__subtitle">Гарантируем, что поменяем детали в случае нашей ошибки</div>
+        <!-- <div class="intro-section__button modal-button">Оставить заявку</div> -->
+    </div>
+
+</div>
 
 
 <?php

@@ -8,6 +8,10 @@ a {
     text-decoration: none !important;
 }
 
+.mobile-header,
+.mobile-menu {
+    display: none;
+}
 
 body {
     position: relative;
@@ -304,6 +308,7 @@ body::-webkit-scrollbar {
             color: #fff;
             font-weight: 500;
             margin-top: 8px;
+            font-size: 12px;
         }
     }
 
@@ -394,6 +399,24 @@ body::-webkit-scrollbar {
     }
 }
 
+.shop-parent {
+
+    &__subtitle {
+        font-size: 36px;
+        line-height: 42px;
+        // color: #fff;
+        color: $main;
+        margin-bottom: 30px;
+    }
+}
+
+.header--updated {
+    align-self: center;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: -60px !important;
+}
+
 .main {
     &--greeting {
         width: 100%;
@@ -423,7 +446,7 @@ body::-webkit-scrollbar {
                         justify-content: center;
 
                         .apply-btn {
-                            width: 25% !important;
+                            width: 18% !important;
                         }
 
                         .header {
@@ -466,6 +489,11 @@ body::-webkit-scrollbar {
 
                     .container--shop {
                         background: linear-gradient(360deg, #212021b5 0%, #bb240d49 100%), url(./assets/images/content/main_bg4.png);
+                        background-size: cover;
+                    }
+
+                    .container--treatment {
+                        background: linear-gradient(360deg, #212021b5 0%, #bb240d49 100%), url(https://www.d-servis.ru/upload/medialibrary/fd1/Obrabotka-metalla-na-tokarnom-stanke-s-CHPU-v-Penze_.jpg);
                         background-size: cover;
                     }
                 }
@@ -574,6 +602,8 @@ body::-webkit-scrollbar {
     }
 
     &--kardan {
+
+
         margin-top: 120px;
         padding: 0 120px;
         width: calc(100% - 240px);
@@ -697,7 +727,7 @@ body::-webkit-scrollbar {
             width: 210px;
             height: 180px;
             position: absolute;
-            right: 550px;
+            left: -25px;
             bottom: -45px;
 
             transition: all 0.3s ease;
@@ -745,7 +775,8 @@ body::-webkit-scrollbar {
         .images-container {
             width: 45%;
             display: flex;
-            height: 100%;
+            height: 370px;
+            position: relative;
 
             .image-container {
                 width: 50%;
@@ -909,6 +940,7 @@ body::-webkit-scrollbar {
             outline: none;
             padding: 10px 0 10px 10px;
             font-size: 12px;
+            border-radius: 0;
         }
 
         &__button {
@@ -1119,7 +1151,7 @@ body::-webkit-scrollbar {
                     background-image: url(http://kardan.bezrealtora.ru/wp-content/themes/kardan/assets/images/content/kardany.jpg);
 
                     &::after {
-                        content: "Магазин карданов";
+                        content: "Магазин карданных валов";
                         color: #fff;
                         font-size: 24px;
                     }
@@ -1131,7 +1163,7 @@ body::-webkit-scrollbar {
                     background-size: 60%;
 
                     &::after {
-                        content: "Магазин турбин";
+                        content: "Магазин турбокомпрессоров";
                         color: #fff;
                         font-size: 24px;
                     }
@@ -2163,4 +2195,893 @@ body::-webkit-scrollbar {
         transform: scale(1.1) !important;
         cursor: pointer;
     }
+}
+
+.special-button-updated {
+    margin-right: 20px !important;
+    width: 20% !important;
+}
+
+
+
+@media screen and (max-width: 1360px) {
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container .header {
+        width: 80%;
+        font-size: 40px;
+        line-height: 46px;
+    }
+
+    .header .header-row .header-address .address-logo img,
+    .header .header-row .header-phone .phone-logo img {
+        height: 20px;
+        width: 20px;
+
+    }
+
+    .header .header-row .header-phone .phone-logo,
+    .header .header-row .header-address .address-logo {
+        margin-top: 5px;
+    }
+
+    .header .header-row .header-address {
+        margin-right: 20px;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container .subheader {
+        width: 60%;
+        margin-top: 15px;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container .apply-btn {
+        width: 50% !important;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .special-row {
+        width: 50%;
+    }
+
+    .main .benefits-parent__subtitle {
+        font-size: 30px;
+    }
+
+    .main .benefits-parent__badge-icon {
+        right: auto;
+        left: -50px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .main--greeting .swiper .swiper-wrapper .special-row {
+        width: 70%;
+    }
+
+    .main--greeting {
+        height: calc(100vh - 67px);
+    }
+
+    .main--kardan,
+    .main--benefits {
+        width: calc(100% - 160px);
+        height: calc(60vh - 80px) !important;
+        margin-top: 80px;
+        padding: 0 80px;
+    }
+
+    .main .kardan-parent__subtitle,
+    .main .benefits-parent__subtitle,
+    .main .shop-parent__subtitle {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    .main .benefits-parent__content {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .main .kardan-parent__content {
+        line-height: 20px;
+        font-size: 16px;
+    }
+
+    .main .kardan-parent__button {
+        font-size: 13px;
+    }
+
+    .main .benefits-parent__badge-icon {
+        width: 180px;
+    }
+
+    .main .form-parent__subtitle {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .main .form-parent .form-container .container {
+        width: 60%;
+    }
+
+    .main--form {
+        margin-top: 80px;
+    }
+
+    .map-container {
+        margin-top: 10vh !important;
+    }
+}
+
+.last-block {
+    height: fit-content !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .header--updated {
+        align-self: center;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: -0px !important;
+    }
+
+    .main {
+        padding-top: 120px;
+    }
+
+    #toMain {
+        margin-top: 67px;
+        padding-top: 0;
+    }
+
+    .header .header-row .header-address {
+        display: none;
+    }
+
+    .header .header-row .header-phone {
+        display: none;
+    }
+
+    .main--shop {
+        height: 300px;
+    }
+
+    .map-container {
+        margin-top: -110px !important;
+    }
+
+    .main--kardan,
+    .main--benefits {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        height: fit-content !important;
+    }
+
+    .main--form {
+        margin-top: 40px;
+    }
+
+    .main--benefits {
+        flex-direction: column-reverse;
+    }
+
+    .main .kardan-parent .image-container,
+    .main .benefits-parent .images-container {
+        width: 100%;
+        margin-bottom: 10%;
+        margin-right: 0;
+        height: 350px;
+
+    }
+
+    .main .kardan-parent:hover {
+        .kardan-parent__badge-icon {
+            transform: scale(1);
+        }
+    }
+
+    .main .benefits-parent:hover .benefits-parent__badge-icon {
+        transform: scale(1);
+    }
+
+    .main .kardan-parent .content-container,
+    .main .benefits-parent .content-container {
+        width: 100%;
+    }
+
+    .main .benefits-parent__badge-icon {
+        bottom: -90px;
+    }
+
+    header {
+        display: none !important;
+    }
+
+    .mobile-header {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #212121;
+        z-index: 1000;
+        width: calc(95vw);
+        height: 20px;
+        padding: 23px 2.5vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: #363636 1px solid;
+
+        &__burger-menu {
+            width: 40px;
+            height: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.3s ease;
+
+            span {
+                background-color: #fff;
+                width: 100%;
+                height: 2px;
+                border-radius: 2px;
+                transition: all 0.3s ease;
+            }
+        }
+
+        &__burger-menu--active {
+            width: 32px;
+            height: 32px;
+            transition: all 0.3s ease;
+
+            .cross-one--mobile {
+                position: absolute;
+                transform: rotate(45deg);
+                margin: auto;
+                top: 0;
+                bottom: 0;
+            }
+
+            .cross-two--mobile {
+                position: absolute;
+                transform: rotate(-45deg);
+                margin: auto;
+                top: 0;
+                bottom: 0;
+            }
+
+            .cross-left {
+                opacity: 0;
+            }
+        }
+
+        .header-logo {
+            margin-right: 10px;
+
+            img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .header-caption {
+            font-size: 14px;
+            line-height: 20px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-right: auto;
+        }
+
+        .header-address {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+
+            .address-logo {
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                margin-right: 10px;
+            }
+
+            .address-value {
+                font-size: 18px;
+                color: #fff;
+                line-height: 26px;
+                font-weight: 500;
+            }
+        }
+
+        .header-phone {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+
+            .phone-logo {
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                margin-right: 10px;
+            }
+
+            .phone-value {
+                font-size: 18px;
+                color: #fff;
+                line-height: 26px;
+                font-weight: 500;
+                text-decoration: none;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+
+        .header-navigation {
+            display: flex;
+            margin-right: auto;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 18px;
+                line-height: 26px;
+                margin-right: 20px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 65px;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+        align-items: start;
+        justify-content: flex-start;
+        background-color: #212121;
+        width: calc(95vw);
+        height: calc(100vh - 105px);
+        padding: 0 2.5vw;
+        padding-top: 40px;
+        transition: all 0.3s ease;
+        transform: translateX(120vw);
+
+        .navigation {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: start;
+            margin-bottom: 32px;
+            height: fit-content;
+
+
+            a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 18px;
+                line-height: 26px;
+                margin-right: 0;
+                margin-bottom: 12px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    transform: scale(1);
+                }
+            }
+        }
+
+        .header-address {
+            display: flex;
+            align-items: center;
+            margin-right: 0px;
+            margin-bottom: 20px;
+
+            .address-logo {
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                margin-right: 10px;
+            }
+
+            .address-value {
+                font-size: 18px;
+                color: #fff;
+                line-height: 26px;
+                font-weight: 500;
+            }
+        }
+
+        .header-phone {
+            display: flex;
+            align-items: center;
+            margin-right: 0px;
+            margin-bottom: 20px;
+
+            .phone-logo {
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                margin-right: 10px;
+            }
+
+            .phone-value {
+                font-size: 18px;
+                color: #fff;
+                line-height: 26px;
+                font-weight: 500;
+                text-decoration: none;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+
+        .contacts {
+            font-size: 16px;
+            margin-bottom: 32px;
+
+            a {
+                font-size: 24px;
+            }
+        }
+
+        .header__book {
+            display: flex !important;
+            align-items: center;
+            position: relative;
+            padding: 14px 20px !important;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: #ffffff;
+
+                .book-header {
+
+                    color: #1A2F44;
+                }
+
+                img {
+                    filter: none;
+                }
+            }
+
+            img {
+                width: 18px;
+                height: 18px;
+                margin-right: 8px;
+                filter: invert(1);
+            }
+
+            .book-header {
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 17px;
+                text-align: center;
+                color: #FFFFFF;
+            }
+
+            .book-counter {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 17px;
+                height: 17px;
+                background-color: #D42515;
+                border-radius: 50%;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 11px;
+                line-height: 13px;
+                color: #FFFFFF;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+
+        &--active {
+            transform: translateX(0);
+            display: flex;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main--shop {
+        height: 250px;
+    }
+
+    .main .shop-parent .container .shop-image--kardan::after {
+        font-size: 18px;
+    }
+
+    .main .shop-parent .container .shop-image--turbo::after {
+        font-size: 18px;
+    }
+
+    .footer {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .apply-form,
+    .applied-screen {
+        padding: 45px 20px;
+        max-width: 446px;
+        width: 80%;
+
+        .form-close {
+            top: 20px;
+            right: 20px;
+        }
+    }
+
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container .header {
+        width: 100%;
+        font-size: 36px;
+        line-height: 42px;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container .subheader {
+        width: 100%;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .special-row {
+        width: 100%;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container {
+        padding: 0 20px;
+
+        width: calc(100% - 40px);
+    }
+
+    .header .header-row--fixed {
+        padding: 20px;
+    }
+
+    .header .header-row {
+        width: calc(100% - 40px);
+        padding: 20px;
+    }
+
+    .main--greeting .swiper .swiper-navigation {
+        right: 20px;
+    }
+
+    .main--greeting .swiper .swiper-pagination {
+        left: 20px;
+    }
+
+    .main--greeting .swiper .swiper-navigation .swiper-button-prev,
+    .main--greeting .swiper .swiper-navigation .swiper-button-next {
+        width: 30px;
+        height: 30px;
+    }
+
+    .main--greeting .swiper .swiper-navigation .swiper-button-prev {
+        margin-right: 30px;
+    }
+
+    .main--kardan,
+    .main--benefits {
+        width: calc(100% - 40px);
+        padding: 0 20px;
+    }
+
+    .main .kardan-parent__badge-icon,
+    .main .benefits-parent__badge-icon {
+        left: -10px;
+    }
+
+    .main .form-parent .form-container {
+        width: calc(100% - 40px);
+        padding: 40px 20px;
+    }
+
+    .main .form-parent .form-container .container {
+        width: 80%;
+    }
+
+    .main .form-parent .form-apply {
+        width: 80%;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .main .shop-parent .container .shop-image--kardan::after {
+        font-size: 14px;
+    }
+
+    .main .shop-parent .container .shop-image--turbo::after {
+        font-size: 14px;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container .header {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container .subheader {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .main .kardan-parent .image-container,
+    .main .benefits-parent .images-container {
+        height: 280px;
+
+        &:hover {
+            transform: scale(1);
+        }
+    }
+
+    .main .kardan-parent,
+    .main .benefits-parent {
+        &:hover {
+            transform: scale(1);
+        }
+    }
+
+    .main .kardan-parent__badge-icon,
+    .main .benefits-parent__badge-icon {
+        height: 150px;
+        width: 180px;
+    }
+
+    .main .benefits-parent__badge-icon {
+        bottom: -50px;
+
+        &:hover {
+            transform: scale(1);
+        }
+    }
+
+    .main .kardan-parent__badge-icon {
+        &:hover {
+            transform: scale(1);
+        }
+    }
+
+    .main .form-parent .form-container .container {
+        width: 100%;
+    }
+
+    .main .form-parent .form-apply {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .main--greeting .swiper .swiper-pagination {
+        display: none;
+    }
+
+    .main .form-parent__title {
+        margin-right: 0;
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .header .header-row .header-caption {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .header .header__book {
+        display: none;
+    }
+
+    .main--shop {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .main .kardan-parent .image-container,
+    .main .benefits-parent .images-container {
+        margin-bottom: 50px;
+    }
+
+    .header .header-row {
+        padding: 10px 20px;
+    }
+
+    .header .header-row .header-logo img {
+        width: 40px !important;
+    }
+
+    .header .header-row--static {
+        top: 60px;
+    }
+
+    .main .shop-parent .container .shop-image--kardan::after {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .main .shop-parent .container .shop-image--turbo::after {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .special-row,
+    .special-row {
+        display: flex;
+        flex-direction: column !important;
+        align-items: start;
+    }
+
+    .main .kardan-parent__button,
+    .main .benefits-parent__button {
+        width: 100%;
+        padding: 20px 0;
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .main .benefits-parent__value {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container .apply-btn {
+        width: 80% !important;
+    }
+
+    .main .form-parent .form-apply {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    #miniApplyForm {
+        .special-row {
+            margin-bottom: 20px;
+            width: 100% !important;
+        }
+    }
+
+    .main .form-parent__label {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .main .form-parent__input {
+        width: 100%;
+    }
+
+    .main .form-parent__label:last-child {
+        width: 100%;
+    }
+
+    .main .form-parent__button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .main .shop-parent .container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .main--shop {
+        height: 450px;
+    }
+
+    .main .shop-parent .container .shop-image {
+        width: 100%;
+        height: 48%;
+        margin-bottom: 5%;
+        margin-right: 0;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container .header {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .main--greeting .swiper .swiper-wrapper .swiper-slide .slider-container .subheader {
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .main .form-parent__subtitle {
+        font-size: 10px;
+        line-height: 13px;
+    }
+
+    .apply-form .form-input {
+        margin-bottom: 20px;
+        padding: 15px;
+        width: calc(100% - 30px);
+    }
+
+    .apply-form {
+        padding: 15px 20px;
+
+        .form-close {
+            top: 15px;
+            right: 15px;
+        }
+    }
+
+    .apply-form .form-subheader {
+        font-size: 12px;
+    }
+
+    .main .kardan-parent__subtitle,
+    .main .benefits-parent__subtitle,
+    .main .shop-parent__subtitle {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .main .benefits-parent__content {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .main .kardan-parent__badge-icon,
+    .main .benefits-parent__badge-icon {
+        height: 120px;
+        width: 150px;
+        left: -20px;
+    }
+
+
+}
+
+.orange-button {
+    background: linear-gradient(360deg, #ff8000 0%, #f99f38 100%);
+    box-shadow: 0 4px 12px rgb($color: #ff8000, $alpha: 40%);
+    text-shadow: none !important;
+    margin-right: 0 !important;
+}
+
+.disable-body {
+    overflow: hidden;
 }

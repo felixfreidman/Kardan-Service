@@ -29,7 +29,7 @@ if (localStorage.getObj("orderCart")) {
 // Данные я помешаю в объект заказа, а затем этот объект помещаю в массив объектов заказа))
 // Этот массив я отправляю в локальное хранилище, чтобы потом уже парсить данные с него 
 
-if (window.location.href.includes('shop')) {
+if (window.location.href.includes('shop') || window.location.href.includes('auto')) {
     console.log('logged');
     const orderButtons = document.querySelectorAll('.cart-button');
     orderButtons.forEach(button => {
